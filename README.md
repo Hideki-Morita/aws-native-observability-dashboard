@@ -154,7 +154,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 ## ☺ Getting Started
 
-To get started with **the AWS Native Observability Dashboard**:
+To get started with **the AWS Native Cross-account Observability Dashboard**:
 
 1. Set up the necessary data sources using our [AWS Native Observability Exporters](https://github.com/Hideki-Morita/aws-native-observability-exporters) repository.
 2. Clone the repository (or just download the Dashboard source files.) and follow the [installation instructions](./assets/Installation.md).
