@@ -47,7 +47,7 @@ Next, you need to clone this repository:
 git clone https://github.com/your-username/aws-native-observability-dashboard.git
 ```
 
-Alternatively, you can download the `dashboard JSON` files directly from the repository.
+Alternatively, you can download the `dashboard JSON` files directly from the repository or using Grafana's dashboard ID(**`21814`**).
 
 ---
 
