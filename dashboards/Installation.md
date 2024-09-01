@@ -9,7 +9,6 @@ This guide will walk you through the steps to set up the necessary data sources 
     - [☻ Step 1: Set Up Data Sources](#-step-1-set-up-data-sources)
     - [☻ Step 2: Clone or Download the Dashboard Repository](#-step-2-clone-or-download-the-dashboard-repository)
       - [✰ **Optional: Adjust Dashboard for Non-Cross-Account Setups**](#-optional-adjust-dashboard-for-non-cross-account-setups)
-        - [**Additional Context:**](#additional-context)
     - [☻ Step 3: Configure Data Sources in Grafana](#-step-3-configure-data-sources-in-grafana)
     - [☻ Step 4: Configure CloudWatch Logs Data Source](#-step-4-configure-cloudwatch-logs-data-source)
     - [☻ Step 5: Import the Dashboard](#-step-5-import-the-dashboard)
@@ -42,13 +41,13 @@ First, you need to set up the necessary data sources using the AWS Native Observ
 
 ### ☻ Step 2: Clone or Download the Dashboard Repository
 
-Next, you need to clone this repository or download the `dashboard JSON` files:
+Next, you need to clone this repository:
 
 ```bash
 git clone https://github.com/your-username/aws-native-observability-dashboard.git
 ```
 
-Alternatively, you can download the JSON files directly from the repository.
+Alternatively, you can download the `dashboard JSON` files directly from the repository.
 
 ---
 
@@ -56,7 +55,7 @@ Alternatively, you can download the JSON files directly from the repository.
 
 #### ✰ **Optional: Adjust Dashboard for Non-Cross-Account Setups**
 
-If you have not yet established "<mark>**CloudWatch cross-account observability**</makr>," also known as "Centralized Logs," you will need to make a small adjustment to the `dashboard JSON` file before proceeding.  
+If you have not yet established "<mark>**CloudWatch cross-account observability**</mark>," also known as "Centralized Logs," you will need to make a small adjustment to the `dashboard JSON` file before proceeding.  
 Specifically, you'll need to delete lines related to the **CloudWatch data source** input, which requires configuration.
 
 ||
@@ -89,18 +88,19 @@ Specifically, you'll need to delete lines related to the **CloudWatch data sourc
 5. **Continue with the Installation:**
    - You can now proceed to import the adjusted dashboard JSON file in **Step 5**.
 
-*Screenshot for Reference:*
-![Delete CloudWatch Data Source](assets/SS-CWLsDatasource-delete.jpg)
+*Screenshot for Reference:*  
+![Delete CloudWatch Data Source](../assets/SS-CWLsDatasource-delete.jpg)
 
 ---
 
-##### **Additional Context:**
-
-- **Why Make These Changes:** 
-   - The CloudWatch data source input configuration requires the CloudWatch cross-account observability setup. If you haven't set up this centralized logging yet, removing these lines will allow you to continue using the dashboard without errors.
-  
-- **No Impact on Other Features:** 
-   - This adjustment will only affect the CloudWatch-related panels. Other aspects of the dashboard will continue to function as expected.
+> 💡 **Note:**
+>##### **Additional Context:**
+>
+>- **Why Make These Changes:** 
+>   - The CloudWatch data source input configuration requires the CloudWatch cross-account observability setup. If you haven't set up this centralized logging yet, removing these lines will allow you to continue using the dashboard without errors.
+>  
+>- **No Impact on Other Features:** 
+>   - This adjustment will only affect the CloudWatch-related panels. Other aspects of the dashboard will continue to function as expected.
 
 ---
 
@@ -144,7 +144,10 @@ To integrate CloudWatch Logs, follow these steps:
    - In the "X-ray trace link" section, select **`grafana-x-ray-datasource`**.
    - Click "Save & Test".
 
-*Screenshot for Reference:*
+> ⚠️ **Important:**  
+> Replace "<mark>**Assume Role ARN**</mark>" and "<mark>**External ID**</mark>", also you can change the "**Detail region**" if you want.
+
+*Screenshot for Reference:*  
 ![image](../assets/SS-CWLsDatasource.jpg)
 
 ---
@@ -160,10 +163,10 @@ Now, you can import the dashboard into Grafana:
 
 2. **Import the Dashboard:**
    - Click the "New" button, then select "Import".
-   - Drag and drop the dashboard JSON file (downloaded in Step 2) into the square box.
+   - Drag and drop the dashboard JSON file (downloaded in **Step 2**) into the square box.
 
 3. **Assign Data Sources:**
-   - For each data source prompt, select the appropriate data source you created in Step 3.
+   - For each data source prompt, select the appropriate data source you created in **Step 3**.
    - Click "Import" to finalize the setup.
 
 ---
