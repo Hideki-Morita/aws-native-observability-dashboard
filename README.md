@@ -11,17 +11,17 @@ This project provides A comprehensive observability solution for AWS environment
 
 <br>
 
-## ☺ Table of Contents
+## 🪩 Table of Contents
 
 - [AWS Native Cross-account Observability Dashboard](#aws-native-cross-account-observability-dashboard)
-  - [☺ Table of Contents](#-table-of-contents)
-  - [☺ Overview](#-overview)
+  - [🪩 Table of Contents](#-table-of-contents)
+  - [🪩 Overview](#-overview)
     - [☻ The #AWSAlwaysFreeChallenge](#-the-awsalwaysfreechallenge)
-  - [☺ Key Features](#-key-features)
+  - [🪩 Key Features](#-key-features)
     - [🚀AWS Configuration Management](#aws-configuration-management)
     - [🚀AWS Serverless Overview](#aws-serverless-overview)
     - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring)
-  - [☺ Screenshots](#-screenshots)
+  - [🪩 Screenshots](#-screenshots)
     - [🚀AWS Configuration Management](#aws-configuration-management-1)
       - [✰ 🟢Free Tier \& Cost Explorer](#-free-tier--cost-explorer)
       - [✰ 🔴AWS Organizations Overview](#-aws-organizations-overview)
@@ -29,14 +29,14 @@ This project provides A comprehensive observability solution for AWS environment
       - [✰ Multi-account 🔴IAM Overview](#-multi-account-iam-overview)
       - [✰ ☁️Centralized 🔴CloudTrail Logs](#-️centralized-cloudtrail-logs)
       - [✰ Inspecting JSON Details](#-inspecting-json-details)
-  - [☺ Getting Started](#-getting-started)
-  - [☺ License](#-license)
+  - [🪩 Getting Started](#-getting-started)
+  - [🪩 License](#-license)
 
 ---
 
 <br>
 
-## ☺ Overview
+## 🪩 Overview
 
 The **AWS Native Cross-account Observability Dashboard** is composed of three parts and integrates seamlessly with **the AWS Management Console** (🔴CloudWatch Logs Insights / 🔴CloudTrail / 🔵X-Ray).  
 
@@ -55,7 +55,7 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 <br>
 
-## ☺ Key Features
+## 🪩 Key Features
 
 ---
 
@@ -91,7 +91,7 @@ _TBD_
 
 <br>
 
-## ☺ Screenshots
+## 🪩 Screenshots
 
 Here are some examples of the dashboards you can create with this project. ([**Also Our limited Demo-site is here**🙃](https://solutionarchitect101.grafana.net/public-dashboards/beb94317b8494fe29d94356090e0a003))
 
@@ -152,7 +152,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-## ☺ Getting Started
+## 🪩 Getting Started
 
 To get started with **the AWS Native Cross-account Observability Dashboard**:
 
@@ -163,7 +163,7 @@ To get started with **the AWS Native Cross-account Observability Dashboard**:
 
 <br>
 
-## ☺ License
+## 🪩 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
@@ -173,7 +173,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 <br>
 
-## ☺ Related Dashboards
+## 🪩 Related Dashboards
 
 This dashboard is part of the AWS Native Observability suite, which includes:
 
@@ -184,7 +184,7 @@ This dashboard is part of the AWS Native Observability suite, which includes:
 
 <br>
 
-## ☺ Contact
+## 🪩 Contact
 
 For support or inquiries, please contact us at [your-email@example.com] or open an issue on our [GitHub repository](https://github.com/your-username/aws-native-observability-dashboard).
 
