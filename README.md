@@ -21,7 +21,7 @@ This project provides A comprehensive observability solution for AWS environment
     - [🚀AWS Configuration Management](#aws-configuration-management)
     - [🚀AWS Serverless Overview](#aws-serverless-overview)
     - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring)
-  - [🪩 Screenshots](#-screenshots)
+  - [🪩 More Screenshots](#-more-screenshots)
     - [🚀AWS Configuration Management](#aws-configuration-management-1)
       - [✰ 🟢Free Tier \& Cost Explorer](#-free-tier--cost-explorer)
       - [✰ 🔴AWS Organizations Overview](#-aws-organizations-overview)
@@ -63,6 +63,8 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 ### 🚀AWS Configuration Management
 
+![image](./assets/SS-AWS_Configuration_Management.jpg)
+ 
 |✅ Features||
 |---|---|
 |🟢**Cost and Usage Tracking:**   |Visualize your AWS Free Tier usage and associated costs to manage your cloud expenditure effectively.|
@@ -91,7 +93,7 @@ _TBD_
 
 <br>
 
-## 🪩 Screenshots
+## 🪩 More Screenshots
 
 Here are some examples of the dashboards you can create with this project. ([**Also Our limited Demo-site is here**🙃](https://solutionarchitect101.grafana.net/public-dashboards/beb94317b8494fe29d94356090e0a003))
 
@@ -194,7 +196,8 @@ For support or inquiries, please contact us at [your-email@example.com] or open 
 
 <br>
 
-Thank you for using the **AWS Native Cross-account Observability Dashboard**. We are committed to helping you maintain robust, secure, and cost-efficient AWS environments as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>.🙃 
+Thank you for using the **AWS Native Cross-account Observability Dashboard**.  
+We are committed to helping you maintain robust, secure, and cost-efficient AWS environments as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>.🙃 
 
 ---
 
