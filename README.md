@@ -135,6 +135,10 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 ![IAM Overview](./assets/SS-IAM.jpg)
 
+>|Role|Customer Managed Policies|Users|
+>|---|---|---|
+>|- AccountID<br> - Arn<br> - AssumeRolePolicyDocument<br> - AttachedManagedPolicies<br> - CreateDate<br> - InstanceProfileList<br> - Path<br> - PermissionsBoundary<br> - RoleId<br> - RoleLastUsed<br> - RoleName<br> - RolePolicyList<br> - Tags|- AccountID<br>- Arn<br>- AttachmentCount<br>- CreateDate<br>- DefaultVersionId<br>- IsAttachable<br>- Path<br>- PermissionsBoundaryUsageCount<br>- PolicyId<br>- PolicyName<br>- PolicyVersionList<br>- UpdateDate<br><br>|- AccountID<br>- Arn<br>- AttachedManagedPolicies<br>- CreateDate<br>- GroupList<br>- Path<br>- PermissionsBoundary<br>- Tags<br>- UserId<br>- UserName<br><br><br><br>|
+
 ---
 
 <br>
@@ -143,6 +147,9 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 ![CloudTrail Logs](./assets/SS-CloudTrail.jpg)
 
+>|CloudTrail|
+>|---|
+>|- Event Time<br>- 🌐Region<br>- Event Source<br>- Event Name<br>- Event Type<br>- 👤User Ident. Type<br>- 👥Invoked By<br>- 🐾From<br>- 🐾User Agent<br>- ➡️👤Recipient Account ID<br>- Event ID<br>- Request ID<br>- 👀Details<br>- Event Version<br>- @logStream|
 ---
 
 <br>
