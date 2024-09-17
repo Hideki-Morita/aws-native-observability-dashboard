@@ -210,6 +210,10 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 ![Centralized CloudWatch Logs insights](./assets/SS-Obs-CWLs-APIGateway.jpg)
 
+>👀 **More detail of it**
+>
+>![Centralized Observability Metrics](./assets/SS-Obs-CWLs-APIGateway-Detail.jpg)
+
 ---
 
 <br>
