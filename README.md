@@ -29,6 +29,15 @@ This project provides A comprehensive observability solution for AWS environment
       - [✰ Multi-account 🔴IAM Overview](#-multi-account-iam-overview)
       - [✰ ☁️Centralized 🔴CloudTrail Logs](#-️centralized-cloudtrail-logs)
       - [✰ Inspecting JSON Details](#-inspecting-json-details)
+    - [🚀AWS Serverless Overview](#aws-serverless-overview-1)
+      - [✰ ☁️Centralized Observability Metrics (🔴API-Gateway)](#-️centralized-observability-metrics-api-gateway)
+      - [✰ ☁️Centralized Observability Metrics (🟠Lambda)](#-️centralized-observability-metrics-lambda)
+      - [✰ ☁️Centralized Observability Metrics (🔴CloudWatch Logs)](#-️centralized-observability-metrics-cloudwatch-logs)
+    - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring-1)
+      - [✰ ☁️Centralized 🔴CloudWatch Logs insights (🔴API-Gateway)](#-️centralized-cloudwatch-logs-insights-api-gateway)
+      - [✰ ☁️Centralized 🔴CloudWatch Logs insights (🟠Lambda)](#-️centralized-cloudwatch-logs-insights-lambda)
+      - [✰ ☁️Centralized 🔵X-Ray](#-️centralized-x-ray)
+      - [✰ ☁️Centralized 🔴CloudTrail](#-️centralized-cloudtrail)
   - [🪩 Getting Started](#-getting-started)
   - [🪩 License](#-license)
 
@@ -156,6 +165,78 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 #### ✰ Inspecting JSON Details
 ![Inspecting JSON Details](./assets/SS-Inspect.jpg)
+
+---
+
+<br>
+
+### 🚀AWS Serverless Overview
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized Observability Metrics (🔴API-Gateway)
+
+![Centralized Observability Metrics](./assets/SS-Obs-Perf-APIGateway.jpg)
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized Observability Metrics (🟠Lambda)
+
+![Centralized Observability Metrics](./assets/SS-Obs-Perf-Lambda.jpg)
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized Observability Metrics (🔴CloudWatch Logs)
+
+![Centralized Observability Metrics](./assets/SS-Obs-Perf-CWLs.jpg)
+
+---
+
+<br>
+
+### 🚀AWS Serverless Observability Monitoring👀
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized 🔴CloudWatch Logs insights (🔴API-Gateway)
+
+![Centralized CloudWatch Logs insights](./assets/SS-Obs-CWLs-APIGateway.jpg)
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized 🔴CloudWatch Logs insights (🟠Lambda)
+
+![Centralized CloudWatch Logs insights](./assets/SS-Obs-CWLs-Lambda.jpg)
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized 🔵X-Ray
+
+![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY.jpg)
+
+|Service Map|Frame Graph|
+|---|---|
+|![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY-SM.jpg)|![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY-Graph.jpg)|
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized 🔴CloudTrail
+
+![Centralized 🔴CloudTrail](./assets/SS-Obs-CloudTrail.jpg)
 
 ---
 
