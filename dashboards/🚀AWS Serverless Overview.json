@@ -1,0 +1,3132 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_STATIC-DATASOURCE",
+      "label": "Static-datasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-static-datasource",
+      "pluginName": "Static"
+    },
+    {
+      "name": "DS_CLOUDWATCH-OREGON",
+      "label": "CloudWatch-Oregon",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "cloudwatch",
+      "pluginName": "CloudWatch"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "panel",
+      "id": "bargauge",
+      "name": "Bar gauge",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "cloudwatch",
+      "name": "CloudWatch",
+      "version": "1.0.0"
+    },
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "11.0.0"
+    },
+    {
+      "type": "datasource",
+      "id": "marcusolsson-static-datasource",
+      "name": "Static",
+      "version": "3.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "volkovlabs-image-panel",
+      "name": "Base64 Image/Video/Audio/PDF",
+      "version": "4.1.0"
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "type": "dashboard"
+      }
+    ]
+  },
+  "description": "Provides a high-level view of key metrics and health indicators across your AWS serverless components based on CloudWatch.",
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "links": [
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": true,
+      "keepTime": true,
+      "tags": [
+        "AWS",
+        "Observability",
+        "CloudWatch"
+      ],
+      "targetBlank": true,
+      "title": "🚀Observability Dashboard List👀",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    }
+  ],
+  "liveNow": false,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 14,
+      "panels": [],
+      "title": "❤️‍🩹Performance: 🔴API-Gateway",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_STATIC-DATASOURCE}"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 38,
+      "options": {
+        "autoPlay": true,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "original",
+        "scale": "auto",
+        "toolbar": true,
+        "width": 60,
+        "widthMode": "custom",
+        "zoomType": "default"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "API-Gateway",
+                "type": "string",
+                "values": [
+                  "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"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "icon"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "description": "Identify 25 longest running API Gateway requests in your API Gateway access log group.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              },
+              {
+                "color": "#800080",
+                "value": 1000
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Path"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 200
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🔽Response Latency"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 355
+              },
+              {
+                "id": "unit",
+                "value": "ms"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "lcd",
+                  "type": "gauge",
+                  "valueDisplayMode": "color"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HTTP Method"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 139
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Request Id"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 406
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Date Time"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "auto"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 0,
+        "y": 3
+      },
+      "id": 35,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "🔽Response Latency"
+          }
+        ]
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {},
+          "expression": "filter ispresent(responseLatency)\n| fields @timestamp, @message, @xrayTraceId, requestId, ip, apiKey, requestTime, httpMethod, routeKey, path, status, protocol, integrationStatus, integrationLatency, responseLatency, responseLength\n| parse @message \"(*) *\" as @requestId, restOfMessage\n| parse restOfMessage \"Method completed with status: *\" as @status\n| parse restOfMessage \"Received response. Status: *, Integration latency: * ms\" as responseStatus, jsonIntegrationLatency\n| parse restOfMessage \"X-ray Tracing ID : Root=*\" as @xrayTraceId\n| filter requestId like /${api_gtwy_request_id}/\n| sort responseLatency desc\n| display path, responseLatency, httpMethod, requestId, @timestamp\n| limit 25\n",
+          "id": "",
+          "label": "",
+          "logGroups": [
+            {
+              "arn": "$api_gtwy_log_group",
+              "name": "$api_gtwy_log_group"
+            }
+          ],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-west-2",
+          "sqlExpression": "",
+          "statistic": "Average",
+          "statsGroups": []
+        }
+      ],
+      "title": "🔴API-Gateway: Longest running requests (Top 25)🎭",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "requestId": false
+            },
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "Time": "Date Time",
+              "httpMethod": "HTTP Method",
+              "path": "Path",
+              "requestId": "Request Id",
+              "responseLatency": "🔽Response Latency"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "description": "Paths with most 4xx errors.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "left",
+            "cellOptions": {
+              "type": "color-text"
+            },
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "errorCount"
+            },
+            "properties": [
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "status"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 150
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "httpMethod"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 123
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "ip"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 351
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "path"
+            },
+            "properties": [
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Path"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 206
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "HTTP Method"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 135
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🚨Error Count"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 139
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#800080",
+                  "mode": "shades"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Status"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 81
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#800080",
+                  "mode": "shades"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 12,
+        "x": 12,
+        "y": 3
+      },
+      "id": 36,
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {},
+          "expression": "filter ispresent(status)\n| filter status >= 400 and status <= 599\n| stats count() as errorCount by path, status, httpMethod, ip\n| sort errorCount desc\n| limit 25\n",
+          "id": "",
+          "label": "",
+          "logGroups": [
+            {
+              "arn": "$api_gtwy_log_group",
+              "name": "$api_gtwy_log_group"
+            }
+          ],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-west-2",
+          "sqlExpression": "",
+          "statistic": "Average",
+          "statsGroups": [
+            "path",
+            "status",
+            "httpMethod",
+            "ip"
+          ]
+        }
+      ],
+      "title": "🔴API-Gateway: Paths with most 4-500 errors🚨 (Top 25)🐉",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {
+              "errorCount": 0,
+              "httpMethod": 3,
+              "ip": 4,
+              "path": 2,
+              "status": 1
+            },
+            "renameByName": {
+              "errorCount": "🚨Error Count",
+              "httpMethod": "HTTP Method",
+              "ip": "IP",
+              "path": "Path",
+              "status": "Status"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "description": "Get list of most popular API paths in your API Gateway access log group",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#c8a2c8",
+            "mode": "shades"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              }
+            ]
+          },
+          "unit": "hit"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "path"
+            },
+            "properties": [
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "requestCount"
+            },
+            "properties": [
+              {
+                "id": "links"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 12,
+        "x": 0,
+        "y": 9
+      },
+      "id": 37,
+      "options": {
+        "displayMode": "gradient",
+        "maxVizHeight": 300,
+        "minVizHeight": 16,
+        "minVizWidth": 8,
+        "namePlacement": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [],
+          "fields": "",
+          "values": true
+        },
+        "showUnfilled": true,
+        "sizing": "auto",
+        "text": {},
+        "valueMode": "color"
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {},
+          "expression": "filter ispresent(path)\n| stats count(*) as requestCount by path\n| sort requestCount desc\n| limit 25",
+          "id": "",
+          "label": "",
+          "logGroups": [
+            {
+              "arn": "$api_gtwy_log_group",
+              "name": "$api_gtwy_log_group"
+            }
+          ],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "",
+          "metricQueryType": 0,
+          "namespace": "",
+          "period": "",
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "us-west-2",
+          "sqlExpression": "",
+          "statistic": "Average",
+          "statsGroups": [
+            "path"
+          ]
+        }
+      ],
+      "title": "🔴API-Gateway: Most popular API paths (Top 25)☂️",
+      "transparent": true,
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": [
+            {
+              "title": "This is dummy link to avoid mistaken click  ",
+              "url": ""
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              },
+              {
+                "color": "#800080",
+                "value": 1
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 12,
+        "y": 9
+      },
+      "id": 34,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 70
+        },
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "accountId": "$account_ids",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {
+            "ApiName": "$api_name"
+          },
+          "expression": "",
+          "id": "",
+          "label": "",
+          "logGroups": [],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "4XXError",
+          "metricQueryType": 0,
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "default",
+          "sql": {
+            "from": {
+              "name": "SCHEMA",
+              "parameters": [
+                {
+                  "name": "AWS/ApiGateway",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            },
+            "select": {
+              "name": "SUM",
+              "parameters": [
+                {
+                  "name": "Count",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            }
+          },
+          "sqlExpression": "SELECT SUM(Count) FROM SCHEMA(\"AWS/ApiGateway\")",
+          "statistic": "Sum"
+        },
+        {
+          "accountId": "$account_ids",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {
+            "ApiName": "$api_name"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "label": "",
+          "logGroups": [],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "5XXError",
+          "metricQueryType": 0,
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "B",
+          "region": "default",
+          "sql": {
+            "from": {
+              "name": "SCHEMA",
+              "parameters": [
+                {
+                  "name": "AWS/ApiGateway",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            },
+            "select": {
+              "name": "SUM",
+              "parameters": [
+                {
+                  "name": "Count",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            }
+          },
+          "sqlExpression": "SELECT SUM(Count) FROM SCHEMA(\"AWS/ApiGateway\")",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "🔴API-Gateway: Errors☂️",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": [
+            {
+              "title": "This is dummy link to avoid mistaken click  ",
+              "url": ""
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 12,
+        "y": 13
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 70
+        },
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "accountId": "$account_ids",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {
+            "ApiName": "$api_name"
+          },
+          "expression": "",
+          "id": "",
+          "label": "",
+          "logGroups": [],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Latency",
+          "metricQueryType": 0,
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "default",
+          "sql": {
+            "from": {
+              "name": "SCHEMA",
+              "parameters": [
+                {
+                  "name": "AWS/ApiGateway",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            },
+            "select": {
+              "name": "SUM",
+              "parameters": [
+                {
+                  "name": "Count",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            }
+          },
+          "sqlExpression": "SELECT SUM(Count) FROM SCHEMA(\"AWS/ApiGateway\")",
+          "statistic": "Average"
+        }
+      ],
+      "title": "🔴API-Gateway: Latency(Average)🐉",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": [
+            {
+              "title": "This is dummy link to avoid mistaken click  ",
+              "url": ""
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              }
+            ]
+          },
+          "unit": "ms"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 6,
+        "x": 18,
+        "y": 13
+      },
+      "id": 33,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 70
+        },
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "accountId": "$account_ids",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {
+            "ApiName": "$api_name"
+          },
+          "expression": "",
+          "id": "",
+          "label": "",
+          "logGroups": [],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "IntegrationLatency",
+          "metricQueryType": 0,
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "default",
+          "sql": {
+            "from": {
+              "name": "SCHEMA",
+              "parameters": [
+                {
+                  "name": "AWS/ApiGateway",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            },
+            "select": {
+              "name": "SUM",
+              "parameters": [
+                {
+                  "name": "Count",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            }
+          },
+          "sqlExpression": "SELECT SUM(Count) FROM SCHEMA(\"AWS/ApiGateway\")",
+          "statistic": "Average"
+        }
+      ],
+      "title": "🔴API-Gateway: IntegrationLatency(Average)🐉",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "links": [
+            {
+              "title": "This is dummy link to avoid mistaken click  ",
+              "url": ""
+            }
+          ],
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#c8a2c8",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 4,
+        "w": 12,
+        "x": 0,
+        "y": 14
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "area",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showPercentChange": true,
+        "text": {
+          "valueSize": 70
+        },
+        "textMode": "value_and_name",
+        "wideLayout": false
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "accountId": "$account_ids",
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "dimensions": {
+            "ApiName": "$api_name"
+          },
+          "expression": "",
+          "id": "",
+          "label": "",
+          "logGroups": [],
+          "matchExact": true,
+          "metricEditorMode": 0,
+          "metricName": "Count",
+          "metricQueryType": 0,
+          "namespace": "AWS/ApiGateway",
+          "period": "",
+          "queryMode": "Metrics",
+          "refId": "A",
+          "region": "default",
+          "sql": {
+            "from": {
+              "name": "SCHEMA",
+              "parameters": [
+                {
+                  "name": "AWS/ApiGateway",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            },
+            "select": {
+              "name": "SUM",
+              "parameters": [
+                {
+                  "name": "Count",
+                  "type": "functionParameter"
+                }
+              ],
+              "type": "function"
+            }
+          },
+          "sqlExpression": "SELECT SUM(Count) FROM SCHEMA(\"AWS/ApiGateway\")",
+          "statistic": "Sum"
+        }
+      ],
+      "title": "🔴API-Gateway: Counts💒",
+      "type": "stat"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 43,
+      "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 10
+          },
+          "id": 39,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Lambda",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "description": "[Filter by ${lambda_function_name}]",
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  },
+                  {
+                    "color": "#daa520",
+                    "value": 1
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "ConcurrentExecutions Average"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "UnreservedConcurrentExecutions Average"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 12
+          },
+          "id": 19,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 25,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "manual",
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "ConcurrentExecutions",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Average"
+            },
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {},
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('MetricName')} ${PROP('Stat')}",
+              "matchExact": false,
+              "metricEditorMode": 0,
+              "metricName": "UnreservedConcurrentExecutions",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Average"
+            }
+          ],
+          "title": "🟠Lambda: Global Concurrent Executions - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Invocations Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 12,
+            "y": 12
+          },
+          "id": 16,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "value_and_name",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Invocations",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "A",
+              "region": "$region",
+              "returnData": false,
+              "sqlExpression": "",
+              "statistic": "Sum"
+            },
+            {
+              "accountId": "$account_ids",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "hide": true,
+              "id": "",
+              "label": "${PROP('MetricName')} ${PROP('Stat')}",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Errors",
+              "metricQueryType": 0,
+              "namespace": "AWS/Lambda",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "B",
+              "region": "default",
+              "sqlExpression": "",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "🟠Lambda: Invocations - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Invocations Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 12,
+            "y": 16
+          },
+          "id": 40,
+          "options": {
+            "colorMode": "background",
+            "graphMode": "area",
+            "justifyMode": "center",
+            "orientation": "auto",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showPercentChange": false,
+            "textMode": "value_and_name",
+            "wideLayout": true
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "hide": false,
+              "id": "",
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "logGroups": [],
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Errors",
+              "metricQueryType": 0,
+              "namespace": "AWS/Lambda",
+              "period": "",
+              "queryMode": "Metrics",
+              "refId": "B",
+              "region": "default",
+              "sqlExpression": "",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "🟠Lambda: Errors🚨 - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "stat"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  },
+                  {
+                    "color": "#daa520",
+                    "value": 300
+                  }
+                ]
+              },
+              "unit": "ms"
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Duration Average"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Duration Maximum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 10,
+            "w": 12,
+            "x": 0,
+            "y": 20
+          },
+          "id": 15,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 25,
+            "minVizWidth": 8,
+            "namePlacement": "left",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "manual",
+            "text": {},
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Duration",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Average"
+            },
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "hide": false,
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL} ",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Duration",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Maximum"
+            }
+          ],
+          "title": "🟠Lambda: Duration(Average and Maximum) - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Throttles Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Dead Letter Error Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "#ffd700"
+                        },
+                        {
+                          "color": "#daa520",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 20
+          },
+          "id": 18,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Throttles",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "A",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Sum"
+            },
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "Dead Letter Error",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Sum"
+            }
+          ],
+          "title": "🟠Lambda: Throttles - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "thresholds"
+              },
+              "links": [],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#ffd700"
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Throttles Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Dead Letter Error Sum"
+                },
+                "properties": [
+                  {
+                    "id": "links"
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "mode": "thresholds"
+                    }
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "#ffd700"
+                        },
+                        {
+                          "color": "#daa520",
+                          "value": 1
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 5,
+            "w": 12,
+            "x": 12,
+            "y": 25
+          },
+          "id": 41,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "accountId": "$account_ids",
+              "alias": "{{metric}} {{stat}}",
+              "application": {
+                "filter": ""
+              },
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "FunctionName": "${lambda_function_name}"
+              },
+              "expression": "",
+              "functions": [],
+              "group": {
+                "filter": ""
+              },
+              "highResolution": false,
+              "host": {
+                "filter": ""
+              },
+              "id": "",
+              "item": {
+                "filter": ""
+              },
+              "label": "${PROP('Stat')}: ${LABEL}",
+              "matchExact": false,
+              "metricEditorMode": 0,
+              "metricName": "Dead Letter Error",
+              "metricQueryType": 0,
+              "mode": 0,
+              "namespace": "AWS/Lambda",
+              "options": {
+                "showDisabledItems": false
+              },
+              "period": "",
+              "refId": "B",
+              "region": "$region",
+              "returnData": false,
+              "statistic": "Sum"
+            }
+          ],
+          "title": "🟠Lambda: Dead Letter Error - [Filter by ${lambda_function_name}]",
+          "transparent": true,
+          "type": "bargauge"
+        }
+      ],
+      "title": "❤️‍🩹Performance: 🟠Lambda",
+      "type": "row"
+    },
+    {
+      "collapsed": true,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 19
+      },
+      "id": 11,
+      "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 11
+          },
+          "id": 42,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "CloudWatch",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              }
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 13
+          },
+          "id": 2,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "alias": "",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "REMOVE_EMPTY(SEARCH('{AWS/Logs,LogGroupName} MetricName=\"IncomingLogEvents\"', 'Sum', $period))/$period",
+              "id": "",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 1,
+              "metricName": "IncomingLogEvents",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Incoming log events [count/sec]",
+          "transparent": true,
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "continuous-GrYlRd"
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "bytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 12,
+            "y": 13
+          },
+          "id": 3,
+          "options": {
+            "displayMode": "lcd",
+            "maxVizHeight": 300,
+            "minVizHeight": 16,
+            "minVizWidth": 8,
+            "namePlacement": "auto",
+            "orientation": "horizontal",
+            "reduceOptions": {
+              "calcs": [
+                "lastNotNull"
+              ],
+              "fields": "",
+              "values": false
+            },
+            "showUnfilled": true,
+            "sizing": "auto",
+            "text": {},
+            "valueMode": "color"
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "alias": "",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "REMOVE_EMPTY(SEARCH('{AWS/Logs,LogGroupName} MetricName=\"IncomingBytes\"', 'Sum', $period))/$period",
+              "id": "",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 1,
+              "metricName": "IncomingLogEvents",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Incoming bytes [bytes/sec]",
+          "transparent": true,
+          "type": "bargauge"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "stepAfter",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 21
+          },
+          "id": 4,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "10.3.1",
+          "targets": [
+            {
+              "accountId": "all",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "DeliveryErrors",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Delivery errors [count]",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "stepAfter",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 21
+          },
+          "id": 5,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "10.3.1",
+          "targets": [
+            {
+              "accountId": "all",
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 0,
+              "metricName": "DeliveryThrottling",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Delivery throttling [count]",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "stepAfter",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "short"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 0,
+            "y": 27
+          },
+          "id": 6,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "10.3.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "REMOVE_EMPTY(SEARCH('{AWS/Logs,LogGroupName} MetricName=\"ForwardedLogEvents\"', 'Sum', $period))/$period",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 1,
+              "metricName": "ForwardedLogEvents",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Forwarded log events [count/sec]",
+          "type": "timeseries"
+        },
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "fieldConfig": {
+            "defaults": {
+              "color": {
+                "mode": "palette-classic"
+              },
+              "custom": {
+                "axisBorderShow": false,
+                "axisCenteredZero": false,
+                "axisColorMode": "text",
+                "axisLabel": "",
+                "axisPlacement": "auto",
+                "barAlignment": 0,
+                "drawStyle": "line",
+                "fillOpacity": 10,
+                "gradientMode": "none",
+                "hideFrom": {
+                  "legend": false,
+                  "tooltip": false,
+                  "viz": false
+                },
+                "insertNulls": false,
+                "lineInterpolation": "stepAfter",
+                "lineWidth": 1,
+                "pointSize": 5,
+                "scaleDistribution": {
+                  "type": "linear"
+                },
+                "showPoints": "never",
+                "spanNulls": false,
+                "stacking": {
+                  "group": "A",
+                  "mode": "none"
+                },
+                "thresholdsStyle": {
+                  "mode": "off"
+                }
+              },
+              "links": [],
+              "mappings": [],
+              "min": 0,
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "green"
+                  },
+                  {
+                    "color": "red",
+                    "value": 80
+                  }
+                ]
+              },
+              "unit": "decbytes"
+            },
+            "overrides": []
+          },
+          "gridPos": {
+            "h": 6,
+            "w": 12,
+            "x": 12,
+            "y": 27
+          },
+          "id": 7,
+          "options": {
+            "legend": {
+              "calcs": [
+                "mean"
+              ],
+              "displayMode": "table",
+              "placement": "right",
+              "showLegend": true
+            },
+            "tooltip": {
+              "maxHeight": 600,
+              "mode": "multi",
+              "sort": "none"
+            }
+          },
+          "pluginVersion": "10.3.1",
+          "targets": [
+            {
+              "datasource": {
+                "type": "cloudwatch",
+                "uid": "${DS_CLOUDWATCH-OREGON}"
+              },
+              "dimensions": {
+                "LogGroupName": "*"
+              },
+              "expression": "REMOVE_EMPTY(SEARCH('{AWS/Logs,LogGroupName} MetricName=\"ForwardedBytes\"', 'Sum', $period))/$period",
+              "label": "",
+              "matchExact": true,
+              "metricEditorMode": 1,
+              "metricName": "ForwardedBytes",
+              "metricQueryType": 0,
+              "namespace": "AWS/Logs",
+              "period": "$period",
+              "refId": "A",
+              "region": "$region",
+              "statistic": "Sum"
+            }
+          ],
+          "title": "Forwarded bytes [bytes/sec]",
+          "type": "timeseries"
+        }
+      ],
+      "title": "❤️‍🩹Performance: 🔴CloudWatch Logs",
+      "type": "row"
+    }
+  ],
+  "schemaVersion": 39,
+  "tags": [
+    "AWS",
+    "CloudWatch",
+    "Observability"
+  ],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "CloudWatch-Oregon",
+          "value": "df4d01e9-db8e-408d-9b93-c83aec689e5d"
+        },
+        "description": "The Data source of CloudWatch",
+        "hide": 0,
+        "includeAll": false,
+        "label": "🔴CW Data source",
+        "multi": false,
+        "name": "cloudwatch",
+        "options": [],
+        "query": "cloudwatch",
+        "queryValue": "",
+        "refresh": 1,
+        "regex": "/CloudWatch-/",
+        "skipUrlSync": false,
+        "type": "datasource"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${DS_CLOUDWATCH-OREGON}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": false,
+        "label": "🌐Region",
+        "multi": true,
+        "name": "region",
+        "options": [],
+        "query": {
+          "queryType": "regions",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 2,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "3600",
+          "value": "3600"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Period [sec]",
+        "multi": false,
+        "name": "period",
+        "options": [
+          {
+            "selected": false,
+            "text": "60",
+            "value": "60"
+          },
+          {
+            "selected": false,
+            "text": "300",
+            "value": "300"
+          },
+          {
+            "selected": true,
+            "text": "3600",
+            "value": "3600"
+          }
+        ],
+        "query": "60,300,3600",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "auto": true,
+        "auto_count": 40,
+        "auto_min": "5m",
+        "current": {
+          "selected": true,
+          "text": "off",
+          "value": "off"
+        },
+        "description": "Controls how often the data refreshes to minimize AWS API costs💸.",
+        "hide": 0,
+        "label": "🔄Refresh interval",
+        "name": "refresh_interval",
+        "options": [
+          {
+            "selected": false,
+            "text": "auto",
+            "value": "$__auto_interval_refresh_interval"
+          },
+          {
+            "selected": true,
+            "text": "off",
+            "value": "off"
+          },
+          {
+            "selected": false,
+            "text": "1m",
+            "value": "1m"
+          },
+          {
+            "selected": false,
+            "text": "3m",
+            "value": "3m"
+          },
+          {
+            "selected": false,
+            "text": "5m",
+            "value": "5m"
+          },
+          {
+            "selected": false,
+            "text": "15m",
+            "value": "15m"
+          },
+          {
+            "selected": false,
+            "text": "30m",
+            "value": "30m"
+          },
+          {
+            "selected": false,
+            "text": "1h",
+            "value": "1h"
+          }
+        ],
+        "query": "off,1m,3m,5m,15m,30m,1h",
+        "queryValue": "",
+        "refresh": 2,
+        "skipUrlSync": false,
+        "type": "interval"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${DS_CLOUDWATCH-OREGON}"
+        },
+        "definition": "",
+        "description": "API-Gateway's log groups list",
+        "hide": 0,
+        "includeAll": true,
+        "label": "🔴Log Group(CW)",
+        "multi": true,
+        "name": "api_gtwy_log_group",
+        "options": [],
+        "query": {
+          "accountId": "all",
+          "logGroupPrefix": "/API-Gateway",
+          "queryType": "logGroups",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": ".*",
+          "value": ".*"
+        },
+        "description": "This is used for API-Gateway",
+        "hide": 0,
+        "includeAll": false,
+        "label": "🔴Target Request Id",
+        "multi": false,
+        "name": "api_gtwy_request_id",
+        "options": [
+          {
+            "selected": true,
+            "text": ".*",
+            "value": ".*"
+          }
+        ],
+        "query": ".*",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "allValue": "*",
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${DS_CLOUDWATCH-OREGON}"
+        },
+        "definition": "",
+        "description": "The value is based on \"Count\" metrics.",
+        "hide": 0,
+        "includeAll": true,
+        "label": "🔴API Name",
+        "multi": true,
+        "name": "api_name",
+        "options": [],
+        "query": {
+          "dimensionKey": "ApiName",
+          "metricName": "Count",
+          "namespace": "AWS/ApiGateway",
+          "queryType": "dimensionValues",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${DS_CLOUDWATCH-OREGON}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "🟠Function Name",
+        "multi": true,
+        "name": "lambda_function_name",
+        "options": [],
+        "query": {
+          "accountId": "all",
+          "dimensionKey": "FunctionName",
+          "metricName": "Duration",
+          "namespace": "AWS/Lambda",
+          "queryType": "dimensionValues",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      },
+      {
+        "current": {},
+        "datasource": {
+          "type": "cloudwatch",
+          "uid": "${DS_CLOUDWATCH-OREGON}"
+        },
+        "definition": "",
+        "hide": 0,
+        "includeAll": true,
+        "label": "🔴🟠Account IDs",
+        "multi": true,
+        "name": "account_ids",
+        "options": [],
+        "query": {
+          "queryType": "accounts",
+          "refId": "CloudWatchVariableQueryEditor-VariableQuery",
+          "region": "default"
+        },
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "2024-09-17T02:50:00.000Z",
+    "to": "2024-09-17T03:05:00.000Z"
+  },
+  "timeRangeUpdatedDuringEditOrView": false,
+  "timepicker": {
+    "hidden": false,
+    "refresh_intervals": [
+      "1m",
+      "3m",
+      "5m",
+      "10m",
+      "15m",
+      "30m"
+    ]
+  },
+  "timezone": "",
+  "title": "AWS Serverless Overview",
+  "uid": "ts1-coldasyou",
+  "version": 125,
+  "weekStart": ""
+}

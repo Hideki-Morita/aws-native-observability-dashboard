@@ -4,7 +4,7 @@
 
 ![License](https://img.shields.io/badge/License-MIT-green) ![AWS](https://img.shields.io/badge/AWS-AWS_Native_Observability-orange) ![Grafana](https://img.shields.io/badge/Grafana-Dashboard-skyblue) ![Grafana](https://img.shields.io/badge/Grafana-11-skyblue) ![#AWSAlwaysFreeChallenge](https://img.shields.io/badge/AWS-AlwaysFreeChallenge-orange)
 
-Welcome to the official site for the **AWS Native Cross-account Observability Dashboard**.  
+Welcome to the official site for the <mark>**AWS Native Cross-account Observability Dashboard**</mark>.  
 This project provides A comprehensive observability solution for AWS environments, meticulously designed following <mark>**the AWS Well-Architected Framework**</mark>. (`SEC01-BP01`: a multi-account strategy, `SEC04-BP01`: centralizing logs, etc.)[^1]
 
 ---
@@ -47,10 +47,11 @@ This project provides A comprehensive observability solution for AWS environment
 
 ## 🪩 Overview
 
-The **AWS Native Cross-account Observability Dashboard** is composed of three parts and integrates seamlessly with **the AWS Management Console** (🔴CloudWatch Logs Insights / 🔴CloudTrail / 🔵X-Ray).  
+The <mark>**AWS Native Cross-account Observability Dashboard**</mark> is composed of three parts and integrates seamlessly with **the AWS Management Console** (🔴CloudWatch Logs Insights / 🔴CloudTrail / 🔵X-Ray).  
 
 - The **🚀AWS Configuration Management** provides deep insights into Identity and Access Management within a complex AWS environment using a multi-account strategy.  
-- The **🚀AWS Serverless Overview** / **🚀AWS Serverless Observability Monitoring👀** offer deep insights into the **AWS Serverless World**, based on the principles of Cloud Native Observability theory (Logs, Metrics (RED/USE patterns), Traces, Service maps, etc.).
+- **Centralized Monitoring for AWS Services**:
+  - The **🚀AWS Serverless Overview** / **🚀AWS Serverless Observability Monitoring👀** offer deep insights into the **AWS Serverless World**, based on the principles of <mark>Cloud Native Observability theory</mark> (Logs, Metrics (RED/USE patterns), Traces, Service maps, etc.).[^2]
 
 ---
 
@@ -58,7 +59,7 @@ The **AWS Native Cross-account Observability Dashboard** is composed of three pa
 
 ### ☻ The #AWSAlwaysFreeChallenge
 
-This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to drive innovation through knowledge and advanced techniques, leveraging open-source solutions to provide alternatives or even superior functionality compared to expensive ($4-5 digits)[^2] AWS Premium Services🥲 (e.g., Amazon OpenSearch, Amazon Athena, Managed Grafana). Through this challenge, we hope to make low-cost, high-functioning solutions more accessible to a wider range of companies and developers.
+This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to drive innovation through knowledge and advanced techniques, leveraging open-source solutions to provide alternatives or even superior functionality compared to expensive ($4-5 digits)[^3] AWS Premium Services🥲 (e.g., Amazon OpenSearch, Amazon Athena, Managed Grafana). Through this challenge, we hope to make low-cost, high-functioning solutions more accessible to a wider range of companies and developers.
 
 ---
 
@@ -70,11 +71,11 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 <br>
 
-### 🚀AWS Configuration Management
+### 🚀AWS Configuration Management 
 
 ![image](./assets/SS-AWS_Configuration_Management.jpg)
  
-|✅ Features||
+|✅ Features| [☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21814-aws-configuration-management/) |
 |---|---|
 |🟢**Cost and Usage Tracking:**   |Visualize your AWS Free Tier usage and associated costs to manage your cloud expenditure effectively.|
 |🔴**AWS Organizations Overview:**     |Monitor organizational units, accounts, policies, and access reports, enabling you to manage your AWS environment efficiently.|
@@ -88,7 +89,12 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 ### 🚀AWS Serverless Overview
 
-_TBD_
+|✅ Features||
+|---|---|
+|🔴**API Gateway Performance Monitoring:**  |- **Longest Running API Requests**: Identify and track the top 25 longest-running API requests. Quickly spot which API paths are contributing to high response times.<br>- **Error Monitoring**: Analyze the API paths with the most 4xx and 5xx errors. Instantly view details such as HTTP methods and IP addresses for effective troubleshooting.<br>- **Popular API Paths**: Gain insights into your most frequently hit API paths to help optimize performance and resource allocation.|
+|🟠**WS Lambda Performance Overview:**   |- **Global Concurrent Executions**: Monitor concurrent executions for each Lambda function in real time. Identify spikes or underutilization to optimize scaling.<br>- **Duration Metrics**: View the average and maximum execution durations for Lambda functions. Easily spot slow-running functions that may need optimization.<br>- **Invocation and Error Tracking**: Keep track of invocations and any Lambda errors, allowing for real-time troubleshooting. Understand how often functions are invoked and their error rates.|
+|🔴**CloudWatch Logs Insights:** |- **Incoming Log Events**: Visualize the rate of log events (count/sec) and bytes/sec from various AWS services such as API Gateway and Lambda. This helps in analyzing data ingestion patterns.<br>- **Error and Throttle Analysis**: Monitor delivery errors, forward logs, and throttling, allowing for efficient troubleshooting of any data delivery issues from CloudWatch Logs.<br>- **Real-time Monitoring**: See the real-time flow of logs to CloudWatch for each service, helping you stay ahead of potential issues and performance bottlenecks.|
+|**Centralized 🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
 
 ---
 
@@ -96,7 +102,12 @@ _TBD_
 
 ### 🚀AWS Serverless Observability Monitoring👀
 
-_TBD_
+|✅ Features||
+|---|---|
+|🔴**API Gateway Request and Error Monitoring:**  |- **Track Recent API Gateway Requests**: View the latest 300 API Gateway requests with detailed metadata, including IP addresses, request methods, and response statuses.<br>- **Error Analytics**: Spot errors (4xx and 5xx) instantly, with the ability to drill down into error details for troubleshooting.|
+|🟠**AWS Lambda Performance Insights:**   |- **Track Recent Lambda Executions**: Examine detailed logs for the most recent Lambda invocations, including execution status, request ID, and X-Ray trace information.<br>- **Enhanced Lambda Debugging**: Easily filter and find Lambda execution logs tied to specific API requests using `correlation IDs` from API Gateway and trace IDs.|
+|🔵**AWS X-Ray Trace Monitoring:** |- **Real-time Trace Visualization**: Get a complete visual breakdown of API Gateway requests and Lambda invocations using X-Ray traces. Trace the path of a request as it moves through API Gateway, Lambda, and DynamoDB using `Service Map`.<br>- **Detailed Latency Breakdown**: Understand the latency of each service involved in a transaction, helping you identify performance bottlenecks at a glance with the `Flame Graph`.|
+|**Centralized 🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
 
 ---
 
@@ -306,7 +317,12 @@ We are committed to helping you maintain robust, secure, and cost-efficient AWS 
   - [**Guidance for Observability on AWS**](https://aws.amazon.com/solutions/guidance/observability-on-aws/)
     - [PDF](https://d1.awsstatic.com/solutions/guidance/architecture-diagrams/observability-on-aws.pdf)
 
-[^2]: - The Pricing list😣 
+[^2]: The Cloud Native Observability theory
+- |||
+  |---|---|
+  |![image](./assets/304_Kubernetes.014.jpeg)|![image](./assets/304_Kubernetes.015.jpeg)|
+
+[^3]: - The Pricing list😣 
 - [**Amazon OpenSearch Service Pricing**](https://aws.amazon.com/opensearch-service/pricing/)
 - [**Amazon Athena Pricing**](https://aws.amazon.com/athena/pricing/)
 - [**Amazon Managed Grafana pricing**](https://aws.amazon.com/grafana/pricing/)
