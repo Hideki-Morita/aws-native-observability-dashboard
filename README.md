@@ -63,7 +63,8 @@ The <mark>**AWS Native Cross-account Observability Dashboard**</mark> is compose
 
 ### ☻ The #AWSAlwaysFreeChallenge
 
-This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to drive innovation through knowledge and advanced techniques, leveraging open-source solutions to provide alternatives or even superior functionality compared to expensive ($4-5 digits)[^3] AWS Premium Services🥲 (e.g., Amazon OpenSearch, Amazon Athena, Managed Grafana). Through this challenge, we hope to make low-cost, high-functioning solutions more accessible to a wider range of companies and developers.
+This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to drive innovation through knowledge and advanced techniques, leveraging open-source solutions to provide alternatives or even superior functionality compared to expensive ($4-5 digits/mo)[^3] AWS Premium Services🥲 (e.g., Amazon OpenSearch, Amazon Athena, Managed Grafana).  
+Through this challenge, we hope to make low-cost, high-functioning solutions more accessible to a wider range of companies and developers.
 
 ---
 
@@ -85,7 +86,7 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 |🔴**AWS Organizations Insights:**     |Monitor organizational units, accounts, policies, and access reports, enabling you to manage your AWS environment efficiently.|
 |🔴**AWS Identity Center Dashboard:**   |Visualize workforce user assignments, permission sets, and identity store details.|
 |🔴**IAM of Multi-Account AWS Environment:** |Gain detailed insights into IAM roles, policies, and user activities from **all accounts** to enhance security and compliance.|
-|**Centralized 🔴CloudWatch and 🔴CloudTrail Logs:** |Monitor and filter the latest AWS CloudTrail requests, including details from AWS Organizations, Identity Center, and IAM.|
+|Centralized **🔴CloudWatch** and **🔴CloudTrail Logs:** |Monitor and filter the latest AWS CloudTrail requests, including details from AWS Organizations, Identity Center, and IAM.|
 
 ---
 
@@ -98,9 +99,9 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 |✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21933-aws-serverless-overview/) |
 |---|---|
 |🔴**API Gateway Performance Monitoring:**  |- **Longest Running API Requests**: Identify and track the top 25 longest-running API requests. Quickly spot which API paths are contributing to high response times.<br>- **Error Monitoring**: Analyze the API paths with the most 4xx and 5xx errors. Instantly view details such as HTTP methods and IP addresses for effective troubleshooting.<br>- **Popular API Paths**: Gain insights into your most frequently hit API paths to help optimize performance and resource allocation.|
-|🟠**WS Lambda Performance Overview:**   |- **Global Concurrent Executions**: Monitor concurrent executions for each Lambda function in real time. Identify spikes or underutilization to optimize scaling.<br>- **Duration Metrics**: View the average and maximum execution durations for Lambda functions. Easily spot slow-running functions that may need optimization.<br>- **Invocation and Error Tracking**: Keep track of invocations and any Lambda errors, allowing for real-time troubleshooting. Understand how often functions are invoked and their error rates.|
+|🟠**AWS Lambda Performance Insights:**   |- **Global Concurrent Executions**: Monitor concurrent executions for each Lambda function in real time. Identify spikes or underutilization to optimize scaling.<br>- **Duration Metrics**: View the average and maximum execution durations for Lambda functions. Easily spot slow-running functions that may need optimization.<br>- **Invocation and Error Tracking**: Keep track of invocations and any Lambda errors, allowing for real-time troubleshooting. Understand how often functions are invoked and their error rates.|
 |🔴**CloudWatch Logs Insights:** |- **Incoming Log Events**: Visualize the rate of log events (count/sec) and bytes/sec from various AWS services such as API Gateway and Lambda. This helps in analyzing data ingestion patterns.<br>- **Error and Throttle Analysis**: Monitor delivery errors, forward logs, and throttling, allowing for efficient troubleshooting of any data delivery issues from CloudWatch Logs.<br>- **Real-time Monitoring**: See the real-time flow of logs to CloudWatch for each service, helping you stay ahead of potential issues and performance bottlenecks.|
-|**Centralized 🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
+|Centralized **🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
 
 ---
 
@@ -112,8 +113,8 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 |✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21935-aws-serverless-security-and-access-logs/) |
 |---|---|
-|🔴**API Gateway Request and Error Monitoring:**  |- **Track Recent API Gateway Requests**: View the latest 300 API Gateway requests with detailed metadata, including IP addresses, request methods, and response statuses.<br>- **Error Analytics**: Spot errors (4xx and 5xx) instantly, with the ability to drill down into error details for troubleshooting.|
-|🟠**AWS Lambda Performance Insights:**   |- **Track Recent Lambda Executions**: Examine detailed logs for the most recent Lambda invocations, including execution status, request ID, and X-Ray trace information.<br>- **Enhanced Lambda Debugging**: Easily filter and find Lambda execution logs tied to specific API requests using `correlation IDs` from API Gateway and trace IDs.|
+|🔴**API Gateway Request and Error Monitoring:**  |- **Track Recent API Gateway Requests**: View the latest _300_ API Gateway requests with detailed metadata, including IP addresses, request methods, and response statuses.<br>- **Error Analytics**: Spot errors (4xx and 5xx) instantly, with the ability to drill down into error details for troubleshooting.|
+|🟠**AWS Lambda Deep Insights:**   |- **Track Recent Lambda Executions**: Examine detailed logs for the most recent Lambda invocations, including execution status, request ID, and X-Ray trace information.<br>- **Enhanced Lambda Debugging**: Easily filter and find Lambda execution logs tied to specific API requests using `correlation IDs` from API Gateway and `trace IDs`.|
 |🔵**AWS X-Ray Trace Monitoring:** |- **Real-time Trace Visualization**: Get a complete visual breakdown of API Gateway requests and Lambda invocations using X-Ray traces. Trace the path of a request as it moves through API Gateway, Lambda, and DynamoDB using `Service Map`.<br>- **Detailed Latency Breakdown**: Understand the latency of each service involved in a transaction, helping you identify performance bottlenecks at a glance with the `Flame Graph`.|
 |**Centralized 🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
 
