@@ -63,8 +63,9 @@ The <mark>**AWS Native Cross-account Observability Dashboard**</mark> is compose
 
 ### ☻ The #AWSAlwaysFreeChallenge
 
-This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to drive innovation through knowledge and advanced techniques, leveraging open-source solutions to provide alternatives or even superior functionality compared to expensive ($4-5 digits/mo)[^3] AWS Premium Services🥲 (e.g., Amazon OpenSearch, Amazon Athena, Managed Grafana).  
-Through this challenge, we hope to make low-cost, high-functioning solutions more accessible to a wider range of companies and developers.
+This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, is dedicated to driving innovation through <mark>**no-cost**</mark>(Pay-As-You-Go), open-source solutions.  
+By leveraging advanced techniques and open-source tools, we aim to provide <u>alternatives that match or even surpass the functionality</u> of expensive **AWS premium services** (often costing $4-5 digits per month)[^3]🥲, such as Amazon OpenSearch, Amazon Athena, and Managed Grafana.  
+Our goal is to empower companies and developers with high-performance, cost-efficient solutions that deliver robust cloud observability without the financial burden of premium pricing.
 
 ---
 
