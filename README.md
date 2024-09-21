@@ -7,6 +7,10 @@
 Welcome to the official site for the <mark>**AWS Native Cross-account Observability Dashboard**</mark>.  
 This project provides A comprehensive observability solution for AWS environments, meticulously designed following <mark>**the AWS Well-Architected Framework**</mark>. (`SEC01-BP01`: a multi-account strategy, `SEC04-BP01`: centralizing logs, etc.)[^1]
 
+<br>
+
+![image](./assets/SS-AWS_Native_Cross-account_Observability_Dashboard.jpg)
+
 ---
 
 <br>
@@ -24,9 +28,9 @@ This project provides A comprehensive observability solution for AWS environment
   - [🪩 More Screenshots](#-more-screenshots)
     - [🚀AWS Configuration Management](#aws-configuration-management-1)
       - [✰ 🟢Free Tier \& Cost Explorer](#-free-tier--cost-explorer)
-      - [✰ 🔴AWS Organizations Overview](#-aws-organizations-overview)
+      - [✰ 🔴AWS Organizations Insights](#-aws-organizations-insights)
       - [✰ 🔴AWS Identity Center Dashboard](#-aws-identity-center-dashboard)
-      - [✰ Multi-account 🔴IAM Overview](#-multi-account-iam-overview)
+      - [✰ Multi-account 🔴IAM Insights](#-multi-account-iam-insights)
       - [✰ ☁️Centralized 🔴CloudTrail Logs](#-️centralized-cloudtrail-logs)
       - [✰ Inspecting JSON Details](#-inspecting-json-details)
     - [🚀AWS Serverless Overview](#aws-serverless-overview-1)
@@ -78,9 +82,9 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 |✅ Features| [☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21814-aws-configuration-management/) |
 |---|---|
 |🟢**Cost and Usage Tracking:**   |Visualize your AWS Free Tier usage and associated costs to manage your cloud expenditure effectively.|
-|🔴**AWS Organizations Overview:**     |Monitor organizational units, accounts, policies, and access reports, enabling you to manage your AWS environment efficiently.|
+|🔴**AWS Organizations Insights:**     |Monitor organizational units, accounts, policies, and access reports, enabling you to manage your AWS environment efficiently.|
 |🔴**AWS Identity Center Dashboard:**   |Visualize workforce user assignments, permission sets, and identity store details.|
-|🔴**IAM of Multi-Account AWS Environment:** |Gain detailed insights into IAM roles, policies, and user activities from all accounts to enhance security and compliance.|
+|🔴**IAM of Multi-Account AWS Environment:** |Gain detailed insights into IAM roles, policies, and user activities from **all accounts** to enhance security and compliance.|
 |**Centralized 🔴CloudWatch and 🔴CloudTrail Logs:** |Monitor and filter the latest AWS CloudTrail requests, including details from AWS Organizations, Identity Center, and IAM.|
 
 ---
@@ -89,7 +93,9 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 ### 🚀AWS Serverless Overview
 
-|✅ Features||
+![image](./assets/SS-AWS_AWS_Serverless_Overview.jpg)
+
+|✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21933-aws-serverless-overview/) |
 |---|---|
 |🔴**API Gateway Performance Monitoring:**  |- **Longest Running API Requests**: Identify and track the top 25 longest-running API requests. Quickly spot which API paths are contributing to high response times.<br>- **Error Monitoring**: Analyze the API paths with the most 4xx and 5xx errors. Instantly view details such as HTTP methods and IP addresses for effective troubleshooting.<br>- **Popular API Paths**: Gain insights into your most frequently hit API paths to help optimize performance and resource allocation.|
 |🟠**WS Lambda Performance Overview:**   |- **Global Concurrent Executions**: Monitor concurrent executions for each Lambda function in real time. Identify spikes or underutilization to optimize scaling.<br>- **Duration Metrics**: View the average and maximum execution durations for Lambda functions. Easily spot slow-running functions that may need optimization.<br>- **Invocation and Error Tracking**: Keep track of invocations and any Lambda errors, allowing for real-time troubleshooting. Understand how often functions are invoked and their error rates.|
@@ -102,7 +108,9 @@ This project, as part of the <mark>**#AWSAlwaysFreeChallenge**</mark>, aims to d
 
 ### 🚀AWS Serverless Observability Monitoring👀
 
-|✅ Features||
+![image](./assets/SS-AWS_AWS_Serverless_Observability_Monitoring.jpg)
+
+|✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21935-aws-serverless-security-and-access-logs/) |
 |---|---|
 |🔴**API Gateway Request and Error Monitoring:**  |- **Track Recent API Gateway Requests**: View the latest 300 API Gateway requests with detailed metadata, including IP addresses, request methods, and response statuses.<br>- **Error Analytics**: Spot errors (4xx and 5xx) instantly, with the ability to drill down into error details for troubleshooting.|
 |🟠**AWS Lambda Performance Insights:**   |- **Track Recent Lambda Executions**: Examine detailed logs for the most recent Lambda invocations, including execution status, request ID, and X-Ray trace information.<br>- **Enhanced Lambda Debugging**: Easily filter and find Lambda execution logs tied to specific API requests using `correlation IDs` from API Gateway and trace IDs.|
@@ -135,7 +143,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ 🔴AWS Organizations Overview
+#### ✰ 🔴AWS Organizations Insights
 
 ![AWS Organizations Overview](./assets/SS-Organizations.jpg)
 
@@ -151,7 +159,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ Multi-account 🔴IAM Overview
+#### ✰ Multi-account 🔴IAM Insights
 
 ![IAM Overview](./assets/SS-IAM.jpg)
 
