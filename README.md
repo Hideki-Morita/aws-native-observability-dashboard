@@ -41,10 +41,10 @@ This project provides A comprehensive observability solution for AWS environment
       - [✰ ☁️Centralized Observability Metrics (🔴Cognito)](#-️centralized-observability-metrics-cognito)
       - [✰ ☁️Centralized Observability Metrics (🔴CloudWatch Logs)](#-️centralized-observability-metrics-cloudwatch-logs)
     - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring-1)
-      - [✰ ☁️Centralized 🔴CloudWatch Logs insights (🔴API-Gateway)](#-️centralized-cloudwatch-logs-insights-api-gateway)
-      - [✰ ☁️Centralized 🔴CloudWatch Logs insights (🟠Lambda)](#-️centralized-cloudwatch-logs-insights-lambda)
-      - [✰ ☁️Centralized 🔵X-Ray](#-️centralized-x-ray)
-      - [✰ ☁️Centralized 🔴CloudTrail](#-️centralized-cloudtrail)
+      - [✰ ☁️Centralized CloudWatch Logs insights (🔴API-Gateway)](#-️centralized-cloudwatch-logs-insights-api-gateway)
+      - [✰ ☁️Centralized CloudWatch Logs insights (🟠Lambda)](#-️centralized-cloudwatch-logs-insights-lambda)
+      - [✰ ☁️Centralized 🔵X-Ray Traces, Service Map and Frame Graph](#-️centralized-x-ray-traces-service-map-and-frame-graph)
+      - [✰ ☁️Centralized 🔴CloudTrail API Traces](#-️centralized-cloudtrail-api-traces)
   - [🪩 Getting Started](#-getting-started)
   - [🪩 License](#-license)
 
@@ -204,6 +204,10 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
+![Centralized Observability Metrics](./assets/SS-Obs-Perf-Overview.jpg)
+
+<br>
+
 #### ✰ ☁️Centralized Observability Metrics (🔴API-Gateway)
 
 ![Centralized Observability Metrics](./assets/SS-Obs-Perf-APIGateway.jpg)
@@ -258,7 +262,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ ☁️Centralized 🔴CloudWatch Logs insights (🔴API-Gateway)
+#### ✰ ☁️Centralized CloudWatch Logs insights (🔴API-Gateway)
 
 ![Centralized CloudWatch Logs insights](./assets/SS-Obs-CWLs-APIGateway.jpg)
 
@@ -270,7 +274,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ ☁️Centralized 🔴CloudWatch Logs insights (🟠Lambda)
+#### ✰ ☁️Centralized CloudWatch Logs insights (🟠Lambda)
 
 ![Centralized CloudWatch Logs insights](./assets/SS-Obs-CWLs-Lambda.jpg)
 
@@ -278,7 +282,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ ☁️Centralized 🔵X-Ray
+#### ✰ ☁️Centralized 🔵X-Ray Traces, Service Map and Frame Graph
 
 ![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY.jpg)
 
@@ -290,7 +294,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ ☁️Centralized 🔴CloudTrail
+#### ✰ ☁️Centralized 🔴CloudTrail API Traces
 
 ![Centralized 🔴CloudTrail](./assets/SS-Obs-CloudTrail.jpg)
 
