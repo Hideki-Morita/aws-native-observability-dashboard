@@ -13,7 +13,7 @@ This guide will walk you through the steps to set up the necessary data sources 
       - [✰ Infinity](#-infinity)
       - [✰ Business Input](#-business-input)
       - [✰ X-Ray](#-x-ray)
-      - [✰ CloudWatch Logs (integrated X-Ray)](#-cloudwatch-logs-integrated-x-ray)
+      - [✰ ☁️Centralized 🔴CloudWatch Logs \& 🔴CloudTrail (integrated X-Ray)](#-️centralized-cloudwatch-logs--cloudtrail-integrated-x-ray)
     - [☻ Step 4: Import the Dashboard](#-step-4-import-the-dashboard)
   - [🪩 Conclusion](#-conclusion)
 
@@ -106,7 +106,7 @@ Specifically, you'll need to delete lines related to the **CloudWatch data sourc
 5. **Continue with the Installation:**
    - You can now proceed to import the adjusted dashboard JSON file in **Step 4**.
 
----
+<br>
 
 > 💡 **Note:**
 >##### **Additional Context:**
@@ -131,21 +131,19 @@ Now, you'll configure the necessary data sources in Grafana:
 
 #### ✰ Infinity
 
-<br>
-
 1. **Navigate to Data Sources:**
    - Go to Grafana and navigate to [Home] → [Connections] → [Data sources].
 
-2. **Add AWS Free Tier Data Source:**
+2. **Add 🟢AWS Free Tier Data Source:**
    - Click "Add new data source" and type `Infinity`.
    - Name the data source **`aws-freetier-datasource`**.
    - Click "Save & Test".
 
 3. **Repeat the Process for Other Data Sources:**
    - Add the following data sources using the same steps:
-     - **`aws-organizations-datasource`**
-     - **`aws-identity-center-datasource`**
-     - **`aws-iam-datasource`**
+     - 🔴AWS Organizations: **`aws-organizations-datasource`**
+     - 🔴AWS Identity Center: **`aws-identity-center-datasource`**
+     - 🔴AWS Identity and Access Management: **`aws-iam-datasource`**
 
 ---
 
@@ -153,7 +151,7 @@ Now, you'll configure the necessary data sources in Grafana:
 
 #### ✰ Business Input
 
-<br>
+This datasource is used for storing AWS icons as static data.
 
 1. **Navigate to Data Source Plugins:**
    - Go to [Home] → [Administration] → [Plugins and data] → [Plugins].
@@ -170,12 +168,10 @@ Now, you'll configure the necessary data sources in Grafana:
 
 #### ✰ X-Ray
 
-<br>
-
 1. **Navigate to Data Sources:**
    - Go to [Home] → [Connections] → [Data sources].
 
-2. **Add grafana-x-ray-datasource Data Source:**
+2. **Add X-Ray Data Source:**
    - Click "Add new data source" and type `x-ray`.
    - Name the data source **`grafana-x-ray-datasource`**.
 
@@ -187,7 +183,7 @@ Now, you'll configure the necessary data sources in Grafana:
 > ⚠️ **Important:**  
 > Replace "<mark>**Assume Role ARN**</mark>" and "<mark>**External ID**</mark>", also you can change the "**Detail region**" if you want.
 
----
+<br>
 
 > 💡 **Note:**
 >##### **Additional Context:**
@@ -200,14 +196,12 @@ Now, you'll configure the necessary data sources in Grafana:
 
 <br>
 
-#### ✰ CloudWatch Logs (integrated X-Ray)
-
-<br>
+#### ✰ ☁️Centralized 🔴CloudWatch Logs & 🔴CloudTrail (integrated X-Ray)
 
 1. **Navigate to Data Sources:**
    - Go to [Home] → [Connections] → [Data sources].
 
-2. **Add CloudWatch-Oregon Data Source:**
+2. **Add CloudWatch Logs Data Source:**
    - Click "Add new data source" and type `cloudwatch`.
    - Name the data source **`CloudWatch-Oregon`**.
 
