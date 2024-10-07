@@ -211,7 +211,7 @@ This datasource is used for storing AWS icons as static data.
    - In the "X-ray trace link" section, select **`grafana-x-ray-datasource`** that you defined.
    - Click "Save & Test".
 
-4. Optional: **Repeat the Process for Other other region:**
+4. Optional: **Repeat the Process for other regions:**
    - For **CloudTrail**, it is supported Multi-Region and Multi-Accounts as Centralized Trace Logs, but **CloudWatch Logs** doesn't, which means, it is Regional Service.(Single-Region and Multi-Accounts)
      - e.g., **`CloudWatch-Virginia`**
 
