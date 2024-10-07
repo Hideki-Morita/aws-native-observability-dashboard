@@ -38,6 +38,7 @@ This project provides A comprehensive observability solution for AWS environment
       - [✰ ☁️Centralized Observability Metrics (🟠Lambda)](#-️centralized-observability-metrics-lambda)
       - [✰ ☁️Centralized Observability Metrics (🔵DynamoDB)](#-️centralized-observability-metrics-dynamodb)
       - [✰ ☁️Centralized Observability Metrics (🔴EventBridge(Bus))](#-️centralized-observability-metrics-eventbridgebus)
+      - [✰ ☁️Centralized Observability Metrics (🔴SQS)](#-️centralized-observability-metrics-sqs)
       - [✰ ☁️Centralized Observability Metrics (🔴Cognito)](#-️centralized-observability-metrics-cognito)
       - [✰ ☁️Centralized Observability Metrics (🔴CloudWatch Logs)](#-️centralized-observability-metrics-cloudwatch-logs)
     - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring-1)
@@ -104,11 +105,12 @@ Our goal is to empower companies and developers with high-performance, cost-effi
 
 |✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21933-aws-serverless-overview/) |
 |---|---|
-|🔴**API Gateway Performance Monitoring:**  |- **Request Rate**: Track real-time request rates (requests per second) for your API Gateway endpoints to understand traffic patterns and optimize scaling.<br>- **Longest Running API Requests**: Identify the top 25 longest-running API requests, helping you address high response times.<br>- **Error Monitoring**: Analyze the API paths with the most 4xx and 5xx errors. Easily view HTTP methods and IP addresses for quick troubleshooting.<br>- **Popular API Paths**: Gain insights into the most frequently hit API paths, helping optimize performance and resource allocation.|
-|🟠**AWS Lambda Performance Insights:**   |- **Request Rate**: Monitor the rate of Lambda function invocations, both synchronous and asynchronous, to understand traffic loads and adjust scaling strategies.<br>- **Concurrent Executions**: Observe real-time concurrency for Lambda functions to manage scaling effectively.<br>- **Invocation Metrics**: View detailed logs of Lambda invocations, including request IDs, trace information, and correlation IDs for deeper insights.<br>- **Duration and Latency Analysis**: Analyze average and maximum execution times for each Lambda function to identify performance bottlenecks.<br>- **Error and Throttle Tracking**: Track errors and throttled invocations, ensuring smoother operations and faster troubleshooting.|
+|🔴**API Gateway Performance Monitoring:**  |- **Request Total** (RPM): Monitor total API requests with counts for each endpoint to see traffic trends and request patterns.<br>- **Response Time** (Max): Analyze maximum response times to identify potential bottlenecks in API performance.<br>- **Integration Response Time**: Track time taken to integrate with back-end services, helping diagnose slow integrations.<br>- **4xx and 5xx Error Analysis**: View paths with the highest errors, along with HTTP methods and IP addresses, for effective troubleshooting.<br>- **Most Popular API Paths**: Highlight frequently accessed API paths to assist in optimizing performance and resource allocation.|
+|🟠**AWS Lambda Performance Insights:**  |- **Request Total (RPM)**: Track Lambda invocations per function(synchronous and asynchronous) to gauge usage and monitor spikes.<br>- <mark>**Duration Metrics with Percentiles**</mark>: View average and maximum execution durations, with percentiles (average, p75, p90, p95, p99) for deeper insights into response variability. This help us identify <mark>extreme outliers, which's the worst customer experiences.</mark><br>- <mark>**Concurrency Metrics**</mark>: Observe concurrent executions to ensure Lambda scaling aligns with demand.<br>- **Error and Throttle Tracking**: Track errors and throttled invocations, ensuring smoother operations and faster troubleshooting.|
 |🔵**DynamoDB Performance Monitoring:**   |- **Request Latency**: Track successful request latencies for both read and write operations to optimize DynamoDB performance.<br>- **Capacity Utilization**: Monitor consumed capacity units for reads and writes to ensure you stay within provisioned limits and avoid throttling.<br>- **Error Tracking**: Watch for system errors like `ConditionalCheckFailedRequests` to ensure data consistency and transactional integrity.<br>- **Throttle Events**: Stay informed about any throttled requests and adjust provisioned capacity to maintain performance.|
-|🔴**EventBridge Monitoring:**   |- **Event Invocation Latency**: Track the latency of event invocations through EventBridge to ensure timely processing of event-driven workflows.<br>- **Failed Invocations and Dead Letter Queues**: Monitor failed invocations and Dead Letter Queues for faster recovery from failed events.<br>- **Throttle Events**: Stay aware of throttled EventBridge rules and make adjustments to avoid delays or message loss.|
-|🔴**AWS Cognito Monitoring**|- **Sign-in and Sign-up Success Tracking**: View real-time sign-in and sign-up successes to monitor authentication performance.<br>- **Challenge Requests**: Track the number of authentication challenges triggered in Cognito, helping monitor suspicious or failed attempts.|
+|🔴**EventBridge Performance Monitoring:**   |- **Request Total** (RPM): Track total EventBridge requests to monitor event flow across services.<br>- **Invocation Latency**: View latency metrics for each event-driven invocation, helping optimize event handling speed.<br>- **Dead Letter Invocations and Throttled Rules**: Monitor failed invocations and throttling to improve event reliability.|
+|🔴**SQS Performance Monitoring:** |- **Requests** (Sent/Received RPM): Track messages sent and received by SQS queues to understand queue activity.<br>- **Age of Oldest Message**: Monitor the oldest message age in the queue to ensure timely processing.<br>- **Delayed Messages**: View delayed messages to optimize queue configuration and performance.|
+|🔴**Cognito Performance Monitoring**|- **Sign-in and Sign-up Success Tracking**: View real-time sign-in and sign-up successes to monitor authentication performance.<br>- **Challenge Requests**: Track the number of authentication challenges triggered in Cognito, helping monitor suspicious or failed attempts.|
 |🔴**CloudWatch Logs Insights:** |- **Incoming Log Events and Bytes**: Visualize the rate of log events and data volume (bytes/sec) from AWS services such as API Gateway, Lambda, and DynamoDB.<br>- **Error and Throttle Analysis**: Monitor delivery errors, log forwarding, and throttling for effective troubleshooting of log data flow.<br>- **Real-Time Monitoring**: Ensure smooth, real-time logging for various services to stay ahead of potential performance issues.|
 
 ---
@@ -218,7 +220,9 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 #### ✰ ☁️Centralized Observability Metrics (🟠Lambda)
 
-![Centralized Observability Metrics](./assets/SS-Obs-Perf-Lambda.jpg)
+|||
+|---|---|
+|![Centralized Observability Metrics](./assets/SS-Obs-Perf-Lambda.jpg)|![Centralized Observability Metrics](./assets/SS-Obs-Perf-Lambda-percentailes.jpg)|
 
 ---
 
@@ -235,6 +239,14 @@ Here are some examples of the dashboards you can create with this project. ([**A
 #### ✰ ☁️Centralized Observability Metrics (🔴EventBridge(Bus))
 
 ![Centralized Observability Metrics](./assets/SS-Obs-Perf-EventBridge.jpg)
+
+---
+
+<br>
+
+#### ✰ ☁️Centralized Observability Metrics (🔴SQS)
+
+![Centralized Observability Metrics](./assets/SS-Obs-Perf-SQS.jpg)
 
 ---
 
