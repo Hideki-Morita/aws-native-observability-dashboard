@@ -1,6 +1,14 @@
 {
   "__inputs": [
     {
+      "name": "DS_STATIC-DATASOURCE",
+      "label": "Static-datasource",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-static-datasource",
+      "pluginName": "Static"
+    },
+    {
       "name": "DS_AWS-FREETIER-DATASOURCE",
       "label": "aws-freetier-datasource",
       "description": "",
@@ -33,8 +41,8 @@
       "pluginName": "Infinity"
     },
     {
-      "name": "DS_COULDWATCH-OREGON",
-      "label": "CouldWatch-Oregon",
+      "name": "DS_CLOUDWATCH-OREGON",
+      "label": "CloudWatch-Oregon",
       "description": "",
       "type": "datasource",
       "pluginId": "cloudwatch",
@@ -68,6 +76,12 @@
       "version": "11.0.0"
     },
     {
+      "type": "datasource",
+      "id": "marcusolsson-static-datasource",
+      "name": "Static",
+      "version": "3.0.0"
+    },
+    {
       "type": "panel",
       "id": "stat",
       "name": "Stat",
@@ -78,6 +92,12 @@
       "id": "table",
       "name": "Table",
       "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "volkovlabs-image-panel",
+      "name": "Base64 Image/Video/Audio/PDF",
+      "version": "4.1.0"
     },
     {
       "type": "datasource",
@@ -127,7 +147,7 @@
   "liveNow": false,
   "panels": [
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -135,731 +155,780 @@
         "y": 0
       },
       "id": 37,
-      "panels": [
-        {
-          "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-          },
-          "description": "Visualizes AWS usage costs by Global-DataScanned-Bytes across different regions to help optimize spending.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "fixed"
-              },
-              "custom": {
-                "axisBorderShow": false,
-                "axisCenteredZero": false,
-                "axisColorMode": "text",
-                "axisLabel": "",
-                "axisPlacement": "auto",
-                "fillOpacity": 70,
-                "gradientMode": "opacity",
-                "hideFrom": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": false
-                },
-                "lineWidth": 2,
-                "scaleDistribution": {
-                  "log": 2,
-                  "type": "symlog"
-                },
-                "thresholdsStyle": {
-                  "mode": "off"
-                }
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "AWS Amplify": {
-                      "index": 10,
-                      "text": "🔴AWS Amplify"
-                    },
-                    "AWS Glue": {
-                      "index": 6,
-                      "text": "🟣AWS Glue"
-                    },
-                    "AWS Key Management Service": {
-                      "index": 2,
-                      "text": "🔴AWS KMS"
-                    },
-                    "AWS Lambda": {
-                      "index": 5,
-                      "text": "🟠AWS Lambda"
-                    },
-                    "AWS Service Catalog": {
-                      "index": 4,
-                      "text": "🔴AWS Service Ctlg"
-                    },
-                    "AWS X-Ray": {
-                      "index": 8,
-                      "text": "🔵AWS X-Ray"
-                    },
-                    "Amazon Cognito": {
-                      "index": 9,
-                      "text": "🔴Amzn Cognito"
-                    },
-                    "Amazon Simple Notification Service": {
-                      "index": 1,
-                      "text": "🔴Amzn SNS"
-                    },
-                    "Amazon Simple Queue Service": {
-                      "index": 0,
-                      "text": "🔴Amzn SQS"
-                    },
-                    "AmazonCloudWatch": {
-                      "index": 3,
-                      "text": "🔴Amzn CloudWatch"
-                    },
-                    "CloudWatch Events": {
-                      "index": 7,
-                      "text": "🔴CloudWatch Events"
-                    }
-                  },
-                  "type": "value"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#87ceeb",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "decgbytes"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Global-DataScanned-Bytes"
-                },
-                "properties": [
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#87ceeb",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 20,
-            "x": 0,
-            "y": 1
-          },
-          "id": 26,
-          "interval": "15m",
-          "options": {
-            "barRadius": 0,
-            "barWidth": 0.85,
-            "fullHighlight": false,
-            "groupWidth": 0.7,
-            "legend": {
-              "calcs": [],
-              "displayMode": "list",
-              "placement": "bottom",
-              "showLegend": false
-            },
-            "orientation": "vertical",
-            "showValue": "auto",
-            "stacking": "none",
-            "tooltip": {
-              "maxHeight": 600,
-              "mode": "multi",
-              "sort": "asc"
-            },
-            "xTickLabelRotation": 45,
-            "xTickLabelSpacing": 100
-          },
-          "pluginVersion": "11.0.0",
-          "targets": [
-            {
-              "columns": [],
-              "datasource": {
-                "type": "yesoreyeram-infinity-datasource",
-                "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-              },
-              "filters": [],
-              "format": "as-is",
-              "global_query_id": "",
-              "parser": "backend",
-              "refId": "A",
-              "root_selector": "UsageData",
-              "source": "url",
-              "type": "json",
-              "url": "http://localhost:4921/freetier/cost-explorer",
-              "url_options": {
-                "data": "",
-                "method": "GET",
-                "params": [
-                  {
-                    "key": "usage_types",
-                    "value": "USE1-DataScanned-Bytes,USW2-DataScanned-Bytes"
-                  }
-                ]
-              }
-            }
-          ],
-          "title": "🙂Cost Explorer: Global-DataScanned-Bytes💎",
-          "transformations": [
-            {
-              "id": "convertFieldType",
-              "options": {
-                "conversions": [
-                  {
-                    "dateFormat": "",
-                    "destinationType": "time",
-                    "targetField": "Start"
-                  },
-                  {
-                    "destinationType": "time",
-                    "targetField": "End"
-                  },
-                  {
-                    "destinationType": "number",
-                    "targetField": "UsageAmount"
-                  }
-                ],
-                "fields": {}
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {},
-                "includeByName": {},
-                "indexByName": {},
-                "renameByName": {
-                  "UsageAmount": "Global-DataScanned-Bytes"
-                }
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "barchart"
-        },
-        {
-          "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-          },
-          "description": "Monitors and displays the utilization of Global-DataScanned-Bytes, helping manage costs effectively.",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "fixedColor": "#e6e6fa",
-                "mode": "shades"
-              },
-              "mappings": [],
-              "max": 5,
-              "min": 0,
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#87ceeb",
-                    "value": null
-                  }
-                ]
-              },
-              "unit": "decgbytes"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 6,
-            "w": 4,
-            "x": 20,
-            "y": 1
-          },
-          "id": 61,
-          "interval": "15m",
-          "options": {
-            "minVizHeight": 75,
-            "minVizWidth": 75,
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "/^Total Usage$/",
-              "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true,
-            "sizing": "auto"
-          },
-          "pluginVersion": "11.0.0",
-          "targets": [
-            {
-              "columns": [],
-              "datasource": {
-                "type": "yesoreyeram-infinity-datasource",
-                "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-              },
-              "filters": [],
-              "format": "as-is",
-              "global_query_id": "",
-              "parser": "backend",
-              "refId": "Total Usage",
-              "root_selector": "TotalUsage",
-              "source": "url",
-              "type": "json",
-              "url": "http://localhost:4921/freetier/cost-explorer",
-              "url_options": {
-                "data": "",
-                "method": "GET",
-                "params": [
-                  {
-                    "key": "usage_types",
-                    "value": "USE1-DataScanned-Bytes,USW2-DataScanned-Bytes"
-                  }
-                ]
-              }
-            }
-          ],
-          "title": "Total (Always Free)",
-          "transformations": [
-            {
-              "id": "convertFieldType",
-              "options": {
-                "conversions": [
-                  {
-                    "dateFormat": "",
-                    "destinationType": "time",
-                    "targetField": "Start"
-                  },
-                  {
-                    "destinationType": "time",
-                    "targetField": "End"
-                  },
-                  {
-                    "destinationType": "number",
-                    "targetField": "UsageAmount"
-                  }
-                ],
-                "fields": {}
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {},
-                "includeByName": {},
-                "indexByName": {},
-                "renameByName": {
-                  "UsageAmount": "Global-DataScanned-Bytes"
-                }
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "gauge"
-        },
-        {
-          "datasource": {
-            "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-          },
-          "description": "Monitors AWS Free Tier usage to ensure service limits are not exceeded.",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "auto"
-                },
-                "filterable": true,
-                "inspect": false,
-                "minWidth": 150
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "AWS Amplify": {
-                      "index": 10,
-                      "text": "🔴AWS Amplify"
-                    },
-                    "AWS Glue": {
-                      "index": 6,
-                      "text": "🟣AWS Glue"
-                    },
-                    "AWS Key Management Service": {
-                      "index": 2,
-                      "text": "🔴AWS KMS"
-                    },
-                    "AWS Lambda": {
-                      "index": 5,
-                      "text": "🟠AWS Lambda"
-                    },
-                    "AWS Service Catalog": {
-                      "index": 4,
-                      "text": "🔴AWS Service Ctlg"
-                    },
-                    "AWS X-Ray": {
-                      "index": 8,
-                      "text": "🔵AWS X-Ray"
-                    },
-                    "Amazon Cognito": {
-                      "index": 9,
-                      "text": "🔴Amzn Cognito"
-                    },
-                    "Amazon Simple Notification Service": {
-                      "index": 1,
-                      "text": "🔴Amzn SNS"
-                    },
-                    "Amazon Simple Queue Service": {
-                      "index": 0,
-                      "text": "🔴Amzn SQS"
-                    },
-                    "AmazonCloudWatch": {
-                      "index": 3,
-                      "text": "🔴Amzn CloudWatch"
-                    },
-                    "CloudWatch Events": {
-                      "index": 7,
-                      "text": "🔴CloudWatch Events"
-                    }
-                  },
-                  "type": "value"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#87ceeb",
-                    "value": null
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🌐Region"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 118
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Limit"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 109
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "1000000": {
-                            "index": 0,
-                            "text": "1 million"
-                          },
-                          "5000000": {
-                            "index": 1,
-                            "text": "5 million"
-                          }
-                        },
-                        "type": "value"
-                      }
-                    ]
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Unit"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 109
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "☁️Service"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 167
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "💵Actual Usage Amnt"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 184
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "from": 0,
-                          "result": {
-                            "color": "light-red",
-                            "index": 0,
-                            "text": "Charged🫠"
-                          },
-                          "to": 1000000000
-                        },
-                        "type": "range"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "mode": "gradient",
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Description"
-                },
-                "properties": [
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "⚙️Operation"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 134
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "💸Forecasted Usage Amnt😱"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 233
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Usage Type"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 214
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "DataScanned-Bytes": {
-                            "index": 0,
-                            "text": "💎DataScanned-Bytes"
-                          }
-                        },
-                        "type": "value"
-                      }
-                    ]
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 9,
-            "w": 24,
-            "x": 0,
-            "y": 7
-          },
-          "id": 60,
-          "interval": "15m",
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "enablePagination": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": [
-              {
-                "desc": true,
-                "displayName": "💵Actual Usage Amnt"
-              }
-            ]
-          },
-          "pluginVersion": "11.0.0",
-          "targets": [
-            {
-              "columns": [],
-              "datasource": {
-                "type": "yesoreyeram-infinity-datasource",
-                "uid": "${DS_AWS-FREETIER-DATASOURCE}"
-              },
-              "filters": [],
-              "format": "table",
-              "global_query_id": "",
-              "parser": "backend",
-              "refId": "A",
-              "root_selector": "freeTierUsages",
-              "source": "url",
-              "type": "json",
-              "url": "http://localhost:4921/freetier",
-              "url_options": {
-                "data": "",
-                "method": "GET"
-              }
-            }
-          ],
-          "title": "🙂Free Tier🗽",
-          "transformations": [
-            {
-              "id": "filterFieldsByName",
-              "options": {
-                "include": {
-                  "names": [
-                    "actualUsageAmount",
-                    "description",
-                    "forecastedUsageAmount",
-                    "limit",
-                    "operation",
-                    "region",
-                    "service",
-                    "unit",
-                    "usageType"
-                  ]
-                }
-              }
-            },
-            {
-              "id": "calculateField",
-              "options": {
-                "alias": "💵Actual Usage Amnt",
-                "binary": {
-                  "left": "actualUsageAmount",
-                  "operator": "-",
-                  "right": "limit"
-                },
-                "mode": "binary",
-                "reduce": {
-                  "include": [
-                    "Limit",
-                    "💸Forecasted Usage Amnt😱"
-                  ],
-                  "reducer": "sum"
-                },
-                "replaceFields": false,
-                "unary": {
-                  "fieldName": "💸Forecasted Usage Amnt😱",
-                  "operator": "exp"
-                }
-              }
-            },
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "actualUsageAmount": true,
-                  "forecastedUsageAmount": false,
-                  "service": false
-                },
-                "includeByName": {},
-                "indexByName": {
-                  "actualUsageAmount": 5,
-                  "description": 9,
-                  "forecastedUsageAmount": 6,
-                  "limit": 7,
-                  "operation": 2,
-                  "region": 0,
-                  "service": 1,
-                  "unit": 8,
-                  "usageType": 3,
-                  "💵Actual Usage Amnt": 4
-                },
-                "renameByName": {
-                  "actualUsageAmount": "💵Actual Usage Amnt Org",
-                  "description": "Description",
-                  "forecastedUsageAmount": "💸Forecasted Usage Amnt😱",
-                  "limit": "Limit",
-                  "operation": "⚙️Operation",
-                  "region": "🌐Region",
-                  "service": "☁️Service",
-                  "unit": "Unit",
-                  "usageType": "Usage Type"
-                }
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "table"
-        }
-      ],
+      "panels": [],
       "title": "🙂Free Tier & Cost Explorer",
       "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_STATIC-DATASOURCE}"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 1
+      },
+      "id": 66,
+      "options": {
+        "autoPlay": true,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "original",
+        "scale": "auto",
+        "toolbar": true,
+        "width": 60,
+        "widthMode": "custom",
+        "zoomType": "default"
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "Finacial Mgmt",
+                "type": "string",
+                "values": [
+                  "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"
+                ]
+              }
+            ],
+            "meta": {},
+            "name": "icon"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+      },
+      "description": "Visualizes AWS usage costs by Global-DataScanned-Bytes across different regions to help optimize spending.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "fixed"
+          },
+          "custom": {
+            "axisBorderShow": false,
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "fillOpacity": 70,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineWidth": 2,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "symlog"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [
+            {
+              "options": {
+                "AWS Amplify": {
+                  "index": 10,
+                  "text": "🔴AWS Amplify"
+                },
+                "AWS Glue": {
+                  "index": 6,
+                  "text": "🟣AWS Glue"
+                },
+                "AWS Key Management Service": {
+                  "index": 2,
+                  "text": "🔴AWS KMS"
+                },
+                "AWS Lambda": {
+                  "index": 5,
+                  "text": "🟠AWS Lambda"
+                },
+                "AWS Service Catalog": {
+                  "index": 4,
+                  "text": "🔴AWS Service Ctlg"
+                },
+                "AWS X-Ray": {
+                  "index": 8,
+                  "text": "🔵AWS X-Ray"
+                },
+                "Amazon Cognito": {
+                  "index": 9,
+                  "text": "🔴Amzn Cognito"
+                },
+                "Amazon Simple Notification Service": {
+                  "index": 1,
+                  "text": "🔴Amzn SNS"
+                },
+                "Amazon Simple Queue Service": {
+                  "index": 0,
+                  "text": "🔴Amzn SQS"
+                },
+                "AmazonCloudWatch": {
+                  "index": 3,
+                  "text": "🔴Amzn CloudWatch"
+                },
+                "CloudWatch Events": {
+                  "index": 7,
+                  "text": "🔴CloudWatch Events"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#87ceeb",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Global-DataScanned-Bytes"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#87ceeb",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 20,
+        "x": 0,
+        "y": 3
+      },
+      "id": 26,
+      "interval": "15m",
+      "options": {
+        "barRadius": 0,
+        "barWidth": 0.85,
+        "fullHighlight": false,
+        "groupWidth": 0.7,
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "orientation": "vertical",
+        "showValue": "auto",
+        "stacking": "none",
+        "tooltip": {
+          "maxHeight": 600,
+          "mode": "multi",
+          "sort": "asc"
+        },
+        "xTickLabelRotation": 45,
+        "xTickLabelSpacing": 100
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "as-is",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "UsageData",
+          "source": "url",
+          "type": "json",
+          "url": "http://localhost:4921/freetier/cost-explorer",
+          "url_options": {
+            "data": "",
+            "method": "GET",
+            "params": [
+              {
+                "key": "usage_types",
+                "value": "USE1-DataScanned-Bytes,USW2-DataScanned-Bytes"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "🙂Cost Explorer: Global-DataScanned-Bytes💎",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "Start"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "End"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "UsageAmount"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "UsageAmount": "Global-DataScanned-Bytes"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "barchart"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+      },
+      "description": "Monitors and displays the utilization of Global-DataScanned-Bytes, helping manage costs effectively.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "#e6e6fa",
+            "mode": "shades"
+          },
+          "mappings": [],
+          "max": 5,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#87ceeb",
+                "value": null
+              }
+            ]
+          },
+          "unit": "decgbytes"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 20,
+        "y": 3
+      },
+      "id": 61,
+      "interval": "15m",
+      "options": {
+        "minVizHeight": 75,
+        "minVizWidth": 75,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "/^Total Usage$/",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "sizing": "auto"
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "as-is",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "Total Usage",
+          "root_selector": "TotalUsage",
+          "source": "url",
+          "type": "json",
+          "url": "http://localhost:4921/freetier/cost-explorer",
+          "url_options": {
+            "data": "",
+            "method": "GET",
+            "params": [
+              {
+                "key": "usage_types",
+                "value": "USE1-DataScanned-Bytes,USW2-DataScanned-Bytes"
+              }
+            ]
+          }
+        }
+      ],
+      "title": "Total (Always Free)",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "dateFormat": "",
+                "destinationType": "time",
+                "targetField": "Start"
+              },
+              {
+                "destinationType": "time",
+                "targetField": "End"
+              },
+              {
+                "destinationType": "number",
+                "targetField": "UsageAmount"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {},
+            "includeByName": {},
+            "indexByName": {},
+            "renameByName": {
+              "UsageAmount": "Global-DataScanned-Bytes"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+      },
+      "description": "Monitors AWS Free Tier usage to ensure service limits are not exceeded.",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
+            },
+            "filterable": true,
+            "inspect": false,
+            "minWidth": 150
+          },
+          "mappings": [
+            {
+              "options": {
+                "AWS Amplify": {
+                  "index": 10,
+                  "text": "🔴AWS Amplify"
+                },
+                "AWS Glue": {
+                  "index": 6,
+                  "text": "🟣AWS Glue"
+                },
+                "AWS Key Management Service": {
+                  "index": 2,
+                  "text": "🔴AWS KMS"
+                },
+                "AWS Lambda": {
+                  "index": 5,
+                  "text": "🟠AWS Lambda"
+                },
+                "AWS Service Catalog": {
+                  "index": 4,
+                  "text": "🔴AWS Service Ctlg"
+                },
+                "AWS X-Ray": {
+                  "index": 8,
+                  "text": "🔵AWS X-Ray"
+                },
+                "Amazon Cognito": {
+                  "index": 9,
+                  "text": "🔴Amzn Cognito"
+                },
+                "Amazon Simple Notification Service": {
+                  "index": 1,
+                  "text": "🔴Amzn SNS"
+                },
+                "Amazon Simple Queue Service": {
+                  "index": 0,
+                  "text": "🔴Amzn SQS"
+                },
+                "AmazonCloudWatch": {
+                  "index": 3,
+                  "text": "🔴Amzn CloudWatch"
+                },
+                "CloudWatch Events": {
+                  "index": 7,
+                  "text": "🔴CloudWatch Events"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#87ceeb",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🌐Region"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 118
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Limit"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 109
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "1000000": {
+                        "index": 0,
+                        "text": "1 million"
+                      },
+                      "5000000": {
+                        "index": 1,
+                        "text": "5 million"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Unit"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 109
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "☁️Service"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 167
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "💵Actual Usage Amnt"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 184
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "from": 0,
+                      "result": {
+                        "color": "light-red",
+                        "index": 0,
+                        "text": "Charged🫠"
+                      },
+                      "to": 1000000000
+                    },
+                    "type": "range"
+                  }
+                ]
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "mode": "gradient",
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Description"
+            },
+            "properties": [
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "⚙️Operation"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 134
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "💸Forecasted Usage Amnt😱"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 233
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Usage Type"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 214
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "DataScanned-Bytes": {
+                        "index": 0,
+                        "text": "💎DataScanned-Bytes"
+                      }
+                    },
+                    "type": "value"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 60,
+      "interval": "15m",
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "💵Actual Usage Amnt"
+          }
+        ]
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_AWS-FREETIER-DATASOURCE}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "parser": "backend",
+          "refId": "A",
+          "root_selector": "freeTierUsages",
+          "source": "url",
+          "type": "json",
+          "url": "http://localhost:4921/freetier",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        }
+      ],
+      "title": "🙂Free Tier🗽",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "actualUsageAmount",
+                "description",
+                "forecastedUsageAmount",
+                "limit",
+                "operation",
+                "region",
+                "service",
+                "unit",
+                "usageType"
+              ]
+            }
+          }
+        },
+        {
+          "id": "calculateField",
+          "options": {
+            "alias": "💵Actual Usage Amnt",
+            "binary": {
+              "left": "actualUsageAmount",
+              "operator": "-",
+              "right": "limit"
+            },
+            "mode": "binary",
+            "reduce": {
+              "include": [
+                "Limit",
+                "💸Forecasted Usage Amnt😱"
+              ],
+              "reducer": "sum"
+            },
+            "replaceFields": false,
+            "unary": {
+              "fieldName": "💸Forecasted Usage Amnt😱",
+              "operator": "exp"
+            }
+          }
+        },
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "actualUsageAmount": true,
+              "forecastedUsageAmount": false,
+              "service": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "actualUsageAmount": 5,
+              "description": 9,
+              "forecastedUsageAmount": 6,
+              "limit": 7,
+              "operation": 2,
+              "region": 0,
+              "service": 1,
+              "unit": 8,
+              "usageType": 3,
+              "💵Actual Usage Amnt": 4
+            },
+            "renameByName": {
+              "actualUsageAmount": "💵Actual Usage Amnt Org",
+              "description": "Description",
+              "forecastedUsageAmount": "💸Forecasted Usage Amnt😱",
+              "limit": "Limit",
+              "operation": "⚙️Operation",
+              "region": "🌐Region",
+              "service": "☁️Service",
+              "unit": "Unit",
+              "usageType": "Usage Type"
+            }
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
     },
     {
       "collapsed": true,
@@ -867,10 +936,60 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 1
+        "y": 18
       },
       "id": 50,
       "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 2
+          },
+          "id": 67,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Organizations",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
         {
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
@@ -887,8 +1006,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffffff"
                   }
                 ]
               }
@@ -899,14 +1017,14 @@
             "h": 4,
             "w": 15,
             "x": 0,
-            "y": 2
+            "y": 4
           },
           "id": 51,
           "interval": "15m",
           "options": {
-            "colorMode": "value",
+            "colorMode": "background",
             "graphMode": "area",
-            "justifyMode": "auto",
+            "justifyMode": "center",
             "orientation": "auto",
             "reduceOptions": {
               "calcs": [
@@ -1052,8 +1170,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffd700"
                   }
                 ]
               }
@@ -1089,7 +1206,7 @@
             "h": 4,
             "w": 9,
             "x": 15,
-            "y": 2
+            "y": 4
           },
           "id": 64,
           "interval": "15m",
@@ -1197,8 +1314,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffd700"
                   }
                 ]
               }
@@ -1336,7 +1452,7 @@
             "h": 8,
             "w": 12,
             "x": 0,
-            "y": 6
+            "y": 8
           },
           "id": 46,
           "interval": "15m",
@@ -1350,7 +1466,7 @@
               ],
               "show": false
             },
-            "frameIndex": 2,
+            "frameIndex": 1,
             "showHeader": true,
             "sortBy": []
           },
@@ -1450,8 +1566,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffd700"
                   }
                 ]
               }
@@ -1850,7 +1965,7 @@
             "h": 8,
             "w": 12,
             "x": 12,
-            "y": 6
+            "y": 8
           },
           "id": 47,
           "interval": "15m",
@@ -1864,7 +1979,7 @@
               ],
               "show": false
             },
-            "frameIndex": 2,
+            "frameIndex": 1,
             "showHeader": true,
             "sortBy": []
           },
@@ -1978,8 +2093,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffd700"
                   }
                 ]
               }
@@ -2239,7 +2353,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 14
+            "y": 16
           },
           "id": 49,
           "interval": "15m",
@@ -2400,8 +2514,7 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#ffd700",
-                    "value": null
+                    "color": "#ffd700"
                   }
                 ]
               }
@@ -2572,7 +2685,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 22
+            "y": 24
           },
           "id": 57,
           "interval": "15m",
@@ -2633,10 +2746,60 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 2
+        "y": 19
       },
       "id": 53,
       "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 3
+          },
+          "id": 69,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "Identity Centor",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
         {
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
@@ -2674,10 +2837,10 @@
             ]
           },
           "gridPos": {
-            "h": 4,
+            "h": 5,
             "w": 24,
             "x": 0,
-            "y": 54
+            "y": 5
           },
           "id": 58,
           "interval": "15m",
@@ -2698,7 +2861,7 @@
               "valueSize": 89
             },
             "textMode": "value_and_name",
-            "wideLayout": true
+            "wideLayout": false
           },
           "pluginVersion": "11.0.0",
           "targets": [
@@ -2930,7 +3093,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 58
+            "y": 10
           },
           "id": 52,
           "interval": "15m",
@@ -3362,7 +3525,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 62
+            "y": 14
           },
           "id": 54,
           "interval": "15m",
@@ -3735,7 +3898,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 70
+            "y": 22
           },
           "id": 55,
           "interval": "15m",
@@ -3798,10 +3961,60 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 3
+        "y": 20
       },
       "id": 38,
       "panels": [
+        {
+          "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 4
+          },
+          "id": 65,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "IAM",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
         {
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
@@ -3829,7 +4042,7 @@
             "h": 4,
             "w": 24,
             "x": 0,
-            "y": 79
+            "y": 6
           },
           "id": 59,
           "interval": "15m",
@@ -4401,7 +4614,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 83
+            "y": 10
           },
           "id": 35,
           "interval": "15m",
@@ -4811,7 +5024,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 91
+            "y": 18
           },
           "id": 36,
           "interval": "15m",
@@ -5231,7 +5444,7 @@
             "h": 8,
             "w": 24,
             "x": 0,
-            "y": 99
+            "y": 26
           },
           "id": 39,
           "interval": "15m",
@@ -5344,815 +5557,864 @@
       "type": "row"
     },
     {
-      "collapsed": true,
+      "collapsed": false,
       "gridPos": {
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 4
+        "y": 21
       },
       "id": 63,
-      "panels": [
+      "panels": [],
+      "title": "☁️Centralized 🔴CloudTrail Logs",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-static-datasource",
+        "uid": "${DS_STATIC-DATASOURCE}"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 24,
+        "x": 0,
+        "y": 22
+      },
+      "id": 68,
+      "options": {
+        "autoPlay": true,
+        "buttons": [],
+        "controls": true,
+        "height": 0,
+        "heightMode": "original",
+        "scale": "auto",
+        "toolbar": true,
+        "width": 60,
+        "widthMode": "custom",
+        "zoomType": "default"
+      },
+      "targets": [
         {
           "datasource": {
-            "type": "cloudwatch",
-            "uid": "${DS_COULDWATCH-OREGON}"
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
           },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "auto"
-                },
-                "filterable": true,
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#800020"
-                  }
+          "frame": {
+            "fields": [
+              {
+                "config": {},
+                "name": "CloudWatch",
+                "type": "string",
+                "values": [
+                  "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"
                 ]
               }
+            ],
+            "meta": {},
+            "name": "icon"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "volkovlabs-image-panel"
+    },
+    {
+      "datasource": {
+        "type": "cloudwatch",
+        "uid": "${DS_CLOUDWATCH-OREGON}"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "align": "auto",
+            "cellOptions": {
+              "type": "auto"
             },
-            "overrides": [
+            "filterable": true,
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
               {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Time"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 180
-                  }
-                ]
-              },
+                "color": "#800020",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
               {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Time"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "dateTimeAsIso"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 170
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🌐Region"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 97
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Source"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 188
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "mappings",
-                    "value": [
-                      {
-                        "options": {
-                          "pattern": ".*lambda.amazonaws.com.*",
-                          "result": {
-                            "index": 0,
-                            "text": "🟠Lambda"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*imagebuilder.amazonaws.com.*",
-                          "result": {
-                            "index": 1,
-                            "text": "🟠Image Builder"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*ec2.amazonaws.com.*",
-                          "result": {
-                            "index": 2,
-                            "text": "🟠EC2"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*apigateway.amazonaws.com.*",
-                          "result": {
-                            "index": 3,
-                            "text": "🔴Amzn API Gateway"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*cloudformation.amazonaws.com.*",
-                          "result": {
-                            "index": 4,
-                            "text": "🔴CloudFormation"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*sso.amazonaws.com.*",
-                          "result": {
-                            "index": 5,
-                            "text": "🔴AWS Identity Centor"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*trustedadvisor.amazonaws.com.*",
-                          "result": {
-                            "index": 6,
-                            "text": "🔴AWS Trusted Advisor"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*saml-provider/AWSSSO.*",
-                          "result": {
-                            "index": 7,
-                            "text": "🔴AWS Identity Centor"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*amplify.amazonaws.com.*",
-                          "result": {
-                            "index": 8,
-                            "text": "🔴AWS Amplify"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*organizations.amazonaws.com.*",
-                          "result": {
-                            "index": 9,
-                            "text": "🔴AWS Organizations"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*cognito.*amazonaws.com.*",
-                          "result": {
-                            "index": 10,
-                            "text": "🔴AWS Cognito"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*iam.amazonaws.com.*",
-                          "result": {
-                            "index": 11,
-                            "text": "🔴AWS IAM"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*access-analyzer.amazonaws.com.*",
-                          "result": {
-                            "index": 12,
-                            "text": "🔴AWS IAM (Access Analyzer)"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*cloudtrail.amazonaws.com.*",
-                          "result": {
-                            "index": 13,
-                            "text": "🔴CloudTrail"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*cloudwatch.*amazonaws.com.*",
-                          "result": {
-                            "index": 14,
-                            "text": "🔴Cloud Watch"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*ssm.amazonaws.com.*",
-                          "result": {
-                            "index": 15,
-                            "text": "🔴AWS Systems Manager"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*iot.amazonaws.com.*",
-                          "result": {
-                            "index": 16,
-                            "text": "🟢AWS IoTCore"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*iottwinmaker.amazonaws.com.*",
-                          "result": {
-                            "index": 17,
-                            "text": "🟢AWS IoT TwinMaker"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*cloud9.amazonaws.com.*",
-                          "result": {
-                            "index": 18,
-                            "text": "🔵Cloud9"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*support.amazonaws.com.*",
-                          "result": {
-                            "index": 19,
-                            "text": "🔵AWS Support"
-                          }
-                        },
-                        "type": "regex"
-                      },
-                      {
-                        "options": {
-                          "pattern": ".*dynamodb.amazonaws.com.*",
-                          "result": {
-                            "index": 20,
-                            "text": "🔵Amzn DynamoDB"
-                          }
-                        },
-                        "type": "regex"
-                      }
-                    ]
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 165
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🐾From"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 141
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#fffdd0",
-                      "mode": "fixed"
-                    }
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👥Invoked By"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 141
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "➡️👤Recipient Account ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 207
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👀Details"
-                },
-                "properties": [
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#ffc0cb",
-                      "mode": "fixed"
-                    }
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Type"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 143
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#fffdd0",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👤User Ident. Type"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 168
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🚨Error Code"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 123
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 96
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Request ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 107
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Version"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 129
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Category"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 139
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Read Only"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 92
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Management Event"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 168
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🐾User Agent"
-                },
-                "properties": [
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#fffdd0",
-                      "mode": "fixed"
-                    }
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  },
-                  {
-                    "id": "custom.width"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "API Version"
-                },
-                "properties": [
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 116
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🚨Error Message"
-                },
-                "properties": [
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
+                "id": "custom.width",
+                "value": 180
               }
             ]
           },
-          "gridPos": {
-            "h": 11,
-            "w": 24,
-            "x": 0,
-            "y": 80
-          },
-          "id": 62,
-          "interval": "5m",
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Time"
             },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "11.0.0",
-          "targets": [
-            {
-              "datasource": {
-                "type": "cloudwatch",
-                "uid": "${DS_COULDWATCH-OREGON}"
+            "properties": [
+              {
+                "id": "unit",
+                "value": "dateTimeAsIso"
               },
-              "expression": "filter eventSource in [\"organizations.amazonaws.com\", \"sso.amazonaws.com\", \"signin.amazonaws.com\", \"iam.amazonaws.com\", \"access-analyzer.amazonaws.com\"]\n| fields @timestamp, @logStream, @message, eventVersion, userIdentity.type, coalesce(userIdentity.invokedBy, userIdentity.principalId, userIdentity.accountId) as InvokedBy, eventTime, eventSource, eventName, eventType, awsRegion, sourceIPAddress, userAgent, errorCode, errorMessage, eventID, @requestParameters, additionalEventData, requestID, readOnly, eventType, apiVersion, managementEvent, recipientAccountId, recipientAccountId.serviceEventDetails.serviceAccountId, eventCategory, tlsDetails.tlsVersion, tlsDetails.cipherSuite, tlsDetails.clientProvidedHostHeader\n| sort @timestamp desc\n| limit 50",
-              "id": "A",
-              "logGroups": [
-                {
-                  "accountId": "968686448851",
-                  "accountLabel": "peterpanchan",
-                  "arn": "arn:aws:logs:us-west-2:968686448851:log-group:/CloudTrail:*",
-                  "name": "/CloudTrail"
-                }
-              ],
-              "queryMode": "Logs",
-              "refId": "A",
-              "region": "default",
-              "statsGroups": []
-            }
-          ],
-          "title": "🔴CloudTrail: Last 50 requests🆕🔽💥(Filter by 🔴Organizations, 🔴Identity Centor, 🔴IAM)🧣",
-          "transformations": [
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "Time": true,
-                  "errorCode": false,
-                  "eventCategory": true,
-                  "managementEvent": true,
-                  "readOnly": true,
-                  "tlsDetails.cipherSuite": true,
-                  "tlsDetails.clientProvidedHostHeader": true,
-                  "tlsDetails.tlsVersion": true,
-                  "userAgent": false
-                },
-                "includeByName": {},
-                "indexByName": {
-                  "@logStream": 26,
-                  "@message": 15,
-                  "InvokedBy": 7,
-                  "Time": 0,
-                  "__log__grafana_internal__": 12,
-                  "__logstream__grafana_internal__": 13,
-                  "apiVersion": 25,
-                  "awsRegion": 2,
-                  "errorCode": 19,
-                  "errorMessage": 20,
-                  "eventCategory": 16,
-                  "eventID": 11,
-                  "eventName": 4,
-                  "eventSource": 3,
-                  "eventTime": 1,
-                  "eventType": 5,
-                  "eventVersion": 21,
-                  "managementEvent": 17,
-                  "readOnly": 18,
-                  "recipientAccountId": 10,
-                  "requestID": 14,
-                  "sourceIPAddress": 8,
-                  "tlsDetails.cipherSuite": 23,
-                  "tlsDetails.clientProvidedHostHeader": 24,
-                  "tlsDetails.tlsVersion": 22,
-                  "userAgent": 9,
-                  "userIdentity.type": 6
-                },
-                "renameByName": {
-                  "@logStream": "",
-                  "@message": "👀Details",
-                  "InvokedBy": "👥Invoked By",
-                  "Time": "Time",
-                  "__log__grafana_internal__": "",
-                  "__logstream__grafana_internal__": "",
-                  "apiVersion": "API Version",
-                  "awsRegion": "🌐Region",
-                  "errorCode": "🚨Error Code",
-                  "errorMessage": "🚨Error Message",
-                  "eventCategory": "Event Category",
-                  "eventID": "Event ID",
-                  "eventName": "Event Name",
-                  "eventSource": "Event Source",
-                  "eventTime": "Event Time",
-                  "eventType": "Event Type",
-                  "eventVersion": "Event Version",
-                  "managementEvent": "Management Event",
-                  "readOnly": "Read Only",
-                  "recipientAccountId": "➡️👤Recipient Account ID",
-                  "requestID": "Request ID",
-                  "sourceIPAddress": "🐾From",
-                  "tlsDetails.tlsVersion": "",
-                  "userAgent": "🐾User Agent",
-                  "userIdentity.accountId": "👤User Ident. Account ID",
-                  "userIdentity.invokedBy": "",
-                  "userIdentity.type": "👤User Ident. Type"
-                }
+              {
+                "id": "custom.width",
+                "value": 170
+              },
+              {
+                "id": "links"
               }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🌐Region"
             },
-            {
-              "id": "sortBy",
-              "options": {
-                "fields": {},
-                "sort": [
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 97
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Source"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 188
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "mappings",
+                "value": [
                   {
-                    "desc": true,
-                    "field": "Event Time"
+                    "options": {
+                      "pattern": ".*lambda.amazonaws.com.*",
+                      "result": {
+                        "index": 0,
+                        "text": "🟠Lambda"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*imagebuilder.amazonaws.com.*",
+                      "result": {
+                        "index": 1,
+                        "text": "🟠Image Builder"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*ec2.amazonaws.com.*",
+                      "result": {
+                        "index": 2,
+                        "text": "🟠EC2"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*apigateway.amazonaws.com.*",
+                      "result": {
+                        "index": 3,
+                        "text": "🔴Amzn API Gateway"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*cloudformation.amazonaws.com.*",
+                      "result": {
+                        "index": 4,
+                        "text": "🔴CloudFormation"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*sso.amazonaws.com.*",
+                      "result": {
+                        "index": 5,
+                        "text": "🔴AWS Identity Centor"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*trustedadvisor.amazonaws.com.*",
+                      "result": {
+                        "index": 6,
+                        "text": "🔴AWS Trusted Advisor"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*saml-provider/AWSSSO.*",
+                      "result": {
+                        "index": 7,
+                        "text": "🔴AWS Identity Centor"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*amplify.amazonaws.com.*",
+                      "result": {
+                        "index": 8,
+                        "text": "🔴AWS Amplify"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*organizations.amazonaws.com.*",
+                      "result": {
+                        "index": 9,
+                        "text": "🔴AWS Organizations"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*cognito.*amazonaws.com.*",
+                      "result": {
+                        "index": 10,
+                        "text": "🔴AWS Cognito"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*iam.amazonaws.com.*",
+                      "result": {
+                        "index": 11,
+                        "text": "🔴AWS IAM"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*access-analyzer.amazonaws.com.*",
+                      "result": {
+                        "index": 12,
+                        "text": "🔴AWS IAM (Access Analyzer)"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*cloudtrail.amazonaws.com.*",
+                      "result": {
+                        "index": 13,
+                        "text": "🔴CloudTrail"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*cloudwatch.*amazonaws.com.*",
+                      "result": {
+                        "index": 14,
+                        "text": "🔴Cloud Watch"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*ssm.amazonaws.com.*",
+                      "result": {
+                        "index": 15,
+                        "text": "🔴AWS Systems Manager"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*iot.amazonaws.com.*",
+                      "result": {
+                        "index": 16,
+                        "text": "🟢AWS IoTCore"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*iottwinmaker.amazonaws.com.*",
+                      "result": {
+                        "index": 17,
+                        "text": "🟢AWS IoT TwinMaker"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*cloud9.amazonaws.com.*",
+                      "result": {
+                        "index": 18,
+                        "text": "🔵Cloud9"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*support.amazonaws.com.*",
+                      "result": {
+                        "index": 19,
+                        "text": "🔵AWS Support"
+                      }
+                    },
+                    "type": "regex"
+                  },
+                  {
+                    "options": {
+                      "pattern": ".*dynamodb.amazonaws.com.*",
+                      "result": {
+                        "index": 20,
+                        "text": "🔵Amzn DynamoDB"
+                      }
+                    },
+                    "type": "regex"
                   }
                 ]
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
               }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 165
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🐾From"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 141
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#fffdd0",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "👥Invoked By"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 141
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "➡️👤Recipient Account ID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 207
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-background"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "👀Details"
+            },
+            "properties": [
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#ffc0cb",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Type"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 143
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#fffdd0",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "👤User Ident. Type"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 168
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🚨Error Code"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 123
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event ID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 96
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Request ID"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 107
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.inspect",
+                "value": true
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Version"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 129
+              },
+              {
+                "id": "links"
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Event Category"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 139
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Read Only"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 92
+              },
+              {
+                "id": "links"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Management Event"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 168
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🐾User Agent"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#fffdd0",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.cellOptions",
+                "value": {
+                  "type": "color-text"
+                }
+              },
+              {
+                "id": "custom.width"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "API Version"
+            },
+            "properties": [
+              {
+                "id": "links"
+              },
+              {
+                "id": "custom.width",
+                "value": 116
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "🚨Error Message"
+            },
+            "properties": [
+              {
+                "id": "custom.inspect",
+                "value": true
+              },
+              {
+                "id": "links"
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 11,
+        "w": 24,
+        "x": 0,
+        "y": 24
+      },
+      "id": 62,
+      "interval": "5m",
+      "options": {
+        "cellHeight": "sm",
+        "footer": {
+          "countRows": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "11.0.0",
+      "targets": [
+        {
+          "datasource": {
+            "type": "cloudwatch",
+            "uid": "${DS_CLOUDWATCH-OREGON}"
+          },
+          "expression": "filter eventSource in [\"organizations.amazonaws.com\", \"sso.amazonaws.com\", \"signin.amazonaws.com\", \"iam.amazonaws.com\", \"access-analyzer.amazonaws.com\"]\n| fields @timestamp, @logStream, @message, eventVersion, userIdentity.type, coalesce(userIdentity.invokedBy, userIdentity.principalId, userIdentity.accountId) as InvokedBy, eventTime, eventSource, eventName, eventType, awsRegion, sourceIPAddress, userAgent, errorCode, errorMessage, eventID, @requestParameters, additionalEventData, requestID, readOnly, eventType, apiVersion, managementEvent, recipientAccountId, recipientAccountId.serviceEventDetails.serviceAccountId, eventCategory, tlsDetails.tlsVersion, tlsDetails.cipherSuite, tlsDetails.clientProvidedHostHeader\n| sort @timestamp desc\n| limit 50",
+          "id": "A",
+          "logGroups": [
+            {
+              "accountId": "968686448851",
+              "accountLabel": "peterpanchan",
+              "arn": "arn:aws:logs:us-west-2:968686448851:log-group:/CloudTrail:*",
+              "name": "/CloudTrail"
             }
           ],
-          "transparent": true,
-          "type": "table"
+          "queryMode": "Logs",
+          "refId": "A",
+          "region": "default",
+          "statsGroups": []
         }
       ],
-      "title": "☁️Centralized 🔴CloudTrail Logs",
-      "type": "row"
+      "title": "🔴CloudTrail: Last 50 requests🆕🔽💥(Filter by 🔴Organizations, 🔴Identity Centor, 🔴IAM)🧣",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "Time": true,
+              "errorCode": false,
+              "eventCategory": true,
+              "managementEvent": true,
+              "readOnly": true,
+              "tlsDetails.cipherSuite": true,
+              "tlsDetails.clientProvidedHostHeader": true,
+              "tlsDetails.tlsVersion": true,
+              "userAgent": false
+            },
+            "includeByName": {},
+            "indexByName": {
+              "@logStream": 26,
+              "@message": 15,
+              "InvokedBy": 7,
+              "Time": 0,
+              "__log__grafana_internal__": 12,
+              "__logstream__grafana_internal__": 13,
+              "apiVersion": 25,
+              "awsRegion": 2,
+              "errorCode": 19,
+              "errorMessage": 20,
+              "eventCategory": 16,
+              "eventID": 11,
+              "eventName": 4,
+              "eventSource": 3,
+              "eventTime": 1,
+              "eventType": 5,
+              "eventVersion": 21,
+              "managementEvent": 17,
+              "readOnly": 18,
+              "recipientAccountId": 10,
+              "requestID": 14,
+              "sourceIPAddress": 8,
+              "tlsDetails.cipherSuite": 23,
+              "tlsDetails.clientProvidedHostHeader": 24,
+              "tlsDetails.tlsVersion": 22,
+              "userAgent": 9,
+              "userIdentity.type": 6
+            },
+            "renameByName": {
+              "@logStream": "",
+              "@message": "👀Details",
+              "InvokedBy": "👥Invoked By",
+              "Time": "Time",
+              "__log__grafana_internal__": "",
+              "__logstream__grafana_internal__": "",
+              "apiVersion": "API Version",
+              "awsRegion": "🌐Region",
+              "errorCode": "🚨Error Code",
+              "errorMessage": "🚨Error Message",
+              "eventCategory": "Event Category",
+              "eventID": "Event ID",
+              "eventName": "Event Name",
+              "eventSource": "Event Source",
+              "eventTime": "Event Time",
+              "eventType": "Event Type",
+              "eventVersion": "Event Version",
+              "managementEvent": "Management Event",
+              "readOnly": "Read Only",
+              "recipientAccountId": "➡️👤Recipient Account ID",
+              "requestID": "Request ID",
+              "sourceIPAddress": "🐾From",
+              "tlsDetails.tlsVersion": "",
+              "userAgent": "🐾User Agent",
+              "userIdentity.accountId": "👤User Ident. Account ID",
+              "userIdentity.invokedBy": "",
+              "userIdentity.type": "👤User Ident. Type"
+            }
+          }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Event Time"
+              }
+            ]
+          }
+        }
+      ],
+      "transparent": true,
+      "type": "table"
     }
   ],
-  "refresh": "",
   "schemaVersion": 39,
   "tags": [
     "AWS",
@@ -6182,8 +6444,8 @@
     ]
   },
   "timezone": "",
-  "title": "🚀AWS Configuration Management",
-  "uid": "ts1.coldasyou",
-  "version": 174,
+  "title": "AWS Configuration Management",
+  "uid": "ts1-coldasyou",
+  "version": 175,
   "weekStart": ""
 }
