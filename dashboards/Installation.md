@@ -25,7 +25,7 @@ This guide will walk you through the steps to set up the necessary data sources 
 
 Before you begin, ensure that you have:
 - A working Grafana instance.
-- Access to the [**AWS Native Observability Exporters**](https://github.com/your-username/aws-native-observability-exporters) repository. (Before set up the **🚀AWS Configuration Management**)
+- Access to the [**AWS Native Observability Exporters**](https://github.com/your-username/aws-native-observability-exporters) repository before set up the **🚀AWS Configuration Management**.<br>(In **🚀AWS Serverless Overview** and **🚀AWS Serverless Observability Monitoring👀**, it’s not requrement.)
 
 ---
 
@@ -35,7 +35,7 @@ Before you begin, ensure that you have:
 |---|---|
 |**🚀AWS Configuration Management**|☑️ `CloudWatch`(Core)<br>☑️ `Infinity`(Core)<br>☑️ `Business Input`|
 |**🚀AWS Serverless Overview**|☑️ `CloudWatch`(Core)<br>☑️ `X-Ray`(Core)<br>☑️ `Business Input`|
-|**🚀AWS Configuration Management**|☑️ `CloudWatch`(Core)<br>☑️ `X-Ray`(Core)<br>☑️ `Business Input`|
+|**🚀AWS Serverless Observability Monitoring👀**|☑️ `CloudWatch`(Core)<br>☑️ `X-Ray`(Core)<br>☑️ `Business Input`|
 
 <br>
 

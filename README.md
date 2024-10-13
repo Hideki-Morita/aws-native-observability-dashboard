@@ -319,7 +319,7 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 To get started with **the AWS Native Cross-account Observability Dashboard**:
 
-1. Set up the necessary data sources using our [AWS Native Observability Exporters](https://github.com/Hideki-Morita/aws-native-observability-exporters) repository.
+1. Set up the necessary data sources using our [AWS Native Observability Exporters](https://github.com/Hideki-Morita/aws-native-observability-exporters) repository. (Only for the 🚀**AWS Configuration Management**)
 2. Clone the repository (or just download the Dashboard source files.) and follow the [installation instructions](./dashboards/Installation.md).
 
 ---
@@ -329,29 +329,6 @@ To get started with **the AWS Native Cross-account Observability Dashboard**:
 ## 🪩 License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
-
-<!--
-
----
-
-<br>
-
-## 🪩 Related Dashboards
-
-This dashboard is part of the AWS Native Observability suite, which includes:
-
-- **[AWS Serverless Overview](#)**: Monitor and visualize your AWS Lambda functions, API Gateway, and other serverless components.
-- **[AWS Serverless Security and Access Logs](#)**: Gain insights into access logs and security events for your serverless applications.
-
----
-
-<br>
-
-## 🪩 Contact
-
-For support or inquiries, please contact us at [your-email@example.com] or open an issue on our [GitHub repository](https://github.com/your-username/aws-native-observability-dashboard).
-
--->
 
 ---
 
