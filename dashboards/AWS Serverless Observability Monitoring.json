@@ -65,8 +65,8 @@
     },
     {
       "type": "panel",
-      "id": "stat",
-      "name": "Stat",
+      "id": "nodeGraph",
+      "name": "Node Graph",
       "version": ""
     },
     {
@@ -98,7 +98,7 @@
       }
     ]
   },
-  "description": "Provides visibility into security events, access logs, and potential issues across your serverless architecture.",
+  "description": "This dashboard offers deep insights into the AWS Serverless World, based on the principles of Cloud Native Observability theory (Logs, Metrics (RED/USE patterns), Traces, Service maps, etc.)",
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
@@ -219,7 +219,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🔴API-Gateway: Last ${limit} requests🆕🔽💥🏰 (Filter by 🔴🟠Target Request Id: ${api_gtwy_request_id})",
+          "title": "🔴API-Gateway💜: Last ${limit} Requests🆕🔽 (Filter by 🔴🟠Target Request Id: ${api_gtwy_request_id})",
           "transparent": true,
           "type": "logs"
         },
@@ -228,7 +228,7 @@
             "type": "cloudwatch",
             "uid": "${DS_CLOUDWATCH-OREGON}"
           },
-          "description": "Returns the last 25 4-500 errors in your API Gateway access log group.",
+          "description": "Returns the last ${limit} 4-500 errors in your API Gateway access log group.",
           "gridPos": {
             "h": 7,
             "w": 12,
@@ -276,7 +276,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🔴API-Gateway: 4-500 errors🚨 (Last 25)💒",
+          "title": "🔴API-Gateway🐉: Last ${limit} 4-500 Errors🚨",
           "transparent": true,
           "type": "logs"
         }
@@ -398,7 +398,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🟠Lambda: Last ${limit} requests🆕🔼🌼 (Filter by 🔴🟠Target Request Id: ${api_gtwy_request_id})",
+          "title": "🟠Lambda💛: Last ${limit} Requests🆕🔼 (Filter by 🔴🟠Target Request Id: ${api_gtwy_request_id})",
           "transparent": true,
           "type": "logs"
         },
@@ -456,7 +456,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🟠Lambda: Last ${limit} requests🆕🔼🌼",
+          "title": "🟠Lambda🌼: Last ${limit} Requests🆕🔼",
           "transparent": true,
           "type": "logs"
         },
@@ -484,7 +484,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -580,11 +581,23 @@
                     "value": 138
                   }
                 ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Type"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 95
+                  }
+                ]
               }
             ]
           },
           "gridPos": {
-            "h": 6,
+            "h": 7,
             "w": 24,
             "x": 0,
             "y": 11
@@ -616,7 +629,7 @@
                 "uid": "${DS_CLOUDWATCH-OREGON}"
               },
               "dimensions": {},
-              "expression": "fields @timestamp, @message, @xrayTraceId, correlation_id, @requestId\n| sort @timestamp desc\n| limit ${limit}",
+              "expression": "fields @timestamp, @message, @type, @xrayTraceId, correlation_id, @requestId\n| sort @timestamp desc\n| limit ${limit}",
               "hide": false,
               "id": "",
               "label": "",
@@ -640,7 +653,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🟠Lambda: Last ${limit} requests🆕🔼🌼",
+          "title": "🟠Lambda🌼: Last ${limit} Requests🆕🔼",
           "transformations": [
             {
               "id": "organize",
@@ -648,17 +661,19 @@
                 "excludeByName": {},
                 "includeByName": {},
                 "indexByName": {
-                  "@message": 3,
-                  "@requestId": 5,
-                  "@xrayTraceId": 6,
+                  "@message": 4,
+                  "@requestId": 6,
+                  "@type": 3,
+                  "@xrayTraceId": 7,
                   "Time": 0,
                   "__log__grafana_internal__": 1,
                   "__logstream__grafana_internal__": 2,
-                  "correlation_id": 4
+                  "correlation_id": 5
                 },
                 "renameByName": {
                   "@message": "👀Details",
                   "@requestId": "🟠Request ID",
+                  "@type": "Type",
                   "@xrayTraceId": "🔵Trace ID",
                   "Time": "",
                   "correlation_id": "🔴Correlation ID"
@@ -738,121 +753,22 @@
             "type": "grafana-x-ray-datasource",
             "uid": "${DS_GRAFANA-X-RAY-DATASOURCE}"
           },
-          "description": "Only allowed the time period is within 24 hours.",
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#2c3e50"
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Error Count"
-                },
-                "properties": [
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#000080"
-                        },
-                        {
-                          "color": "#bdc3c7",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Fault Count"
-                },
-                "properties": [
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#000080"
-                        },
-                        {
-                          "color": "#bdc3c7",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Throttle Count"
-                },
-                "properties": [
-                  {
-                    "id": "thresholds",
-                    "value": {
-                      "mode": "absolute",
-                      "steps": [
-                        {
-                          "color": "#000080"
-                        },
-                        {
-                          "color": "#bdc3c7",
-                          "value": 1
-                        }
-                      ]
-                    }
-                  }
-                ]
-              }
-            ]
-          },
+          "description": "Only allowed the time period is within 24 hours.\nThis panel visualizes the service map of AWS resources, highlighting interactions and dependencies to enhance understanding of application performance and behavior.",
           "gridPos": {
-            "h": 3,
+            "h": 5,
             "w": 24,
             "x": 0,
             "y": 5
           },
-          "id": 41,
+          "id": 46,
           "options": {
-            "colorMode": "background",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "lastNotNull"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showPercentChange": false,
-            "textMode": "auto",
-            "wideLayout": true
+            "edges": {},
+            "nodes": {}
           },
           "pluginVersion": "11.0.0",
           "targets": [
             {
-              "columns": [
-                "all"
-              ],
+              "accountIds": [],
               "datasource": {
                 "type": "grafana-x-ray-datasource",
                 "uid": "${DS_GRAFANA-X-RAY-DATASOURCE}"
@@ -866,12 +782,12 @@
                 }
               },
               "query": "",
-              "queryType": "getTimeSeriesServiceStatistics",
-              "refId": "A",
+              "queryType": "getServiceMap",
+              "refId": "Service Map",
               "region": "default"
             }
           ],
-          "title": "🔵X-RAY: Trace Statistics🌙",
+          "title": "🔵X-Ray💙: Service Map",
           "transformations": [
             {
               "id": "organize",
@@ -887,7 +803,7 @@
             }
           ],
           "transparent": true,
-          "type": "stat"
+          "type": "nodeGraph"
         },
         {
           "datasource": {
@@ -910,7 +826,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#2c3e50"
+                    "color": "#2c3e50",
+                    "value": null
                   }
                 ]
               }
@@ -924,7 +841,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 326
+                    "value": 322
                   }
                 ]
               },
@@ -936,7 +853,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 93
+                    "value": 88
                   }
                 ]
               },
@@ -948,7 +865,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 84
+                    "value": 75
                   },
                   {
                     "id": "custom.cellOptions",
@@ -962,7 +879,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "#2c3e50"
+                          "color": "#2c3e50",
+                          "value": null
                         },
                         {
                           "color": "#bdc3c7",
@@ -981,7 +899,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 159
+                    "value": 153
                   },
                   {
                     "id": "custom.cellOptions",
@@ -995,7 +913,8 @@
                       "mode": "absolute",
                       "steps": [
                         {
-                          "color": "#2c3e50"
+                          "color": "#2c3e50",
+                          "value": null
                         },
                         {
                           "color": "#bdc3c7",
@@ -1014,7 +933,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 468
+                    "value": 511
                   }
                 ]
               },
@@ -1026,7 +945,7 @@
                 "properties": [
                   {
                     "id": "custom.width",
-                    "value": 125
+                    "value": 135
                   }
                 ]
               },
@@ -1045,10 +964,10 @@
             ]
           },
           "gridPos": {
-            "h": 11,
-            "w": 24,
+            "h": 12,
+            "w": 12,
             "x": 0,
-            "y": 8
+            "y": 10
           },
           "id": 20,
           "options": {
@@ -1062,7 +981,12 @@
               "show": false
             },
             "showHeader": true,
-            "sortBy": []
+            "sortBy": [
+              {
+                "desc": true,
+                "displayName": "🔽Response Time"
+              }
+            ]
           },
           "pluginVersion": "11.0.0",
           "targets": [
@@ -1072,7 +996,7 @@
                 "uid": "${DS_GRAFANA-X-RAY-DATASOURCE}"
               },
               "group": {
-                "GroupARN": "arn:aws:xray:us-west-2:799960128252:group/Default",
+                "GroupARN": "arn:aws:xray:us-west-2:699881639058:group/Default",
                 "GroupName": "Default",
                 "InsightsConfiguration": {
                   "InsightsEnabled": false,
@@ -1081,11 +1005,11 @@
               },
               "query": "",
               "queryType": "getTraceSummaries",
-              "refId": "A",
+              "refId": "Trace List",
               "region": "default"
             }
           ],
-          "title": "🔵X-RAY: Trace List🌙",
+          "title": "🔵X-Ray🐈‍⬛: Trace List",
           "transformations": [
             {
               "id": "organize",
@@ -1097,6 +1021,178 @@
                   "Response": "Status",
                   "Response Time": "🔽Response Time"
                 }
+              }
+            }
+          ],
+          "transparent": true,
+          "type": "table"
+        },
+        {
+          "datasource": {
+            "type": "grafana-x-ray-datasource",
+            "uid": "${DS_GRAFANA-X-RAY-DATASOURCE}"
+          },
+          "description": "Only allowed the time period is within 24 hours.\nThis panel visualizes the response time root cause path from AWS X-Ray within a 24-hour window, aiding in quick identification of performance issues in serverless applications.",
+          "fieldConfig": {
+            "defaults": {
+              "custom": {
+                "align": "auto",
+                "cellOptions": {
+                  "type": "auto"
+                },
+                "filterable": true,
+                "inspect": false
+              },
+              "mappings": [],
+              "thresholds": {
+                "mode": "absolute",
+                "steps": [
+                  {
+                    "color": "#2c3e50",
+                    "value": null
+                  }
+                ]
+              }
+            },
+            "overrides": [
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Response Time Root Cause Path"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 1117
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Count"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 95
+                  },
+                  {
+                    "id": "color",
+                    "value": {
+                      "fixedColor": "#5d3fd3",
+                      "mode": "shades"
+                    }
+                  },
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "type": "color-background"
+                    }
+                  }
+                ]
+              },
+              {
+                "matcher": {
+                  "id": "byName",
+                  "options": "Percent"
+                },
+                "properties": [
+                  {
+                    "id": "custom.width",
+                    "value": 206
+                  },
+                  {
+                    "id": "custom.cellOptions",
+                    "value": {
+                      "mode": "lcd",
+                      "type": "gauge",
+                      "valueDisplayMode": "text"
+                    }
+                  },
+                  {
+                    "id": "unit",
+                    "value": "percent"
+                  },
+                  {
+                    "id": "thresholds",
+                    "value": {
+                      "mode": "absolute",
+                      "steps": [
+                        {
+                          "color": "#000080",
+                          "value": null
+                        },
+                        {
+                          "color": "#bdc3c7",
+                          "value": 10
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          "gridPos": {
+            "h": 12,
+            "w": 12,
+            "x": 12,
+            "y": 10
+          },
+          "id": 47,
+          "options": {
+            "cellHeight": "sm",
+            "footer": {
+              "countRows": false,
+              "fields": "",
+              "reducer": [
+                "sum"
+              ],
+              "show": false
+            },
+            "showHeader": true,
+            "sortBy": [
+              {
+                "desc": true,
+                "displayName": "Percent"
+              }
+            ]
+          },
+          "pluginVersion": "11.0.0",
+          "targets": [
+            {
+              "datasource": {
+                "type": "grafana-x-ray-datasource",
+                "uid": "${DS_GRAFANA-X-RAY-DATASOURCE}"
+              },
+              "group": {
+                "GroupARN": "arn:aws:xray:us-west-2:699881639058:group/Default",
+                "GroupName": "Default",
+                "InsightsConfiguration": {
+                  "InsightsEnabled": false,
+                  "NotificationsEnabled": false
+                }
+              },
+              "query": "",
+              "queryType": "getAnalyticsRootCauseResponseTimePath",
+              "refId": "Route Cause",
+              "region": "default"
+            }
+          ],
+          "title": "🔵X-Ray🌙: Response Time Root Cause Path",
+          "transformations": [
+            {
+              "id": "organize",
+              "options": {
+                "excludeByName": {},
+                "includeByName": {},
+                "indexByName": {
+                  "Count": 1,
+                  "Percent": 0,
+                  "Response Time Root Cause Path": 2
+                },
+                "renameByName": {}
               }
             }
           ],
@@ -1118,7 +1214,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green"
+                    "color": "green",
+                    "value": null
                   },
                   {
                     "color": "red",
@@ -1133,7 +1230,7 @@
             "h": 2,
             "w": 1,
             "x": 3,
-            "y": 19
+            "y": 22
           },
           "id": 36,
           "options": {
@@ -1214,6 +1311,56 @@
       "panels": [
         {
           "datasource": {
+            "type": "marcusolsson-static-datasource",
+            "uid": "${DS_STATIC-DATASOURCE}"
+          },
+          "gridPos": {
+            "h": 2,
+            "w": 24,
+            "x": 0,
+            "y": 4
+          },
+          "id": 48,
+          "options": {
+            "autoPlay": true,
+            "buttons": [],
+            "controls": true,
+            "height": 0,
+            "heightMode": "original",
+            "scale": "auto",
+            "toolbar": true,
+            "width": 60,
+            "widthMode": "custom",
+            "zoomType": "default"
+          },
+          "targets": [
+            {
+              "datasource": {
+                "type": "marcusolsson-static-datasource",
+                "uid": "${DS_STATIC-DATASOURCE}"
+              },
+              "frame": {
+                "fields": [
+                  {
+                    "config": {},
+                    "name": "CloudTrail",
+                    "type": "string",
+                    "values": [
+                      "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"
+                    ]
+                  }
+                ],
+                "meta": {},
+                "name": "icon"
+              },
+              "refId": "A"
+            }
+          ],
+          "transparent": true,
+          "type": "volkovlabs-image-panel"
+        },
+        {
+          "datasource": {
             "type": "cloudwatch",
             "uid": "${DS_CLOUDWATCH-OREGON}"
           },
@@ -1233,7 +1380,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#800020"
+                    "color": "#800020",
+                    "value": null
                   }
                 ]
               }
@@ -1651,7 +1799,7 @@
             "h": 11,
             "w": 24,
             "x": 0,
-            "y": 37
+            "y": 6
           },
           "id": 24,
           "options": {
@@ -1689,7 +1837,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🔴CloudTrail: Last 100 requests🆕🔽💥(Without AssumeRole/AssumedRole and CloudTrail as invokedBy)🧣",
+          "title": "🔴CloudTrail🧣: Last ${limit} Activities🆕🔽 (Without AssumeRole/AssumedRole and CloudTrail as invokedBy)",
           "transformations": [
             {
               "id": "organize",
@@ -1813,7 +1961,8 @@
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "#800020"
+                    "color": "#800020",
+                    "value": null
                   }
                 ]
               }
@@ -2180,10 +2329,10 @@
             ]
           },
           "gridPos": {
-            "h": 7,
-            "w": 12,
+            "h": 6,
+            "w": 24,
             "x": 0,
-            "y": 48
+            "y": 17
           },
           "id": 40,
           "options": {
@@ -2230,7 +2379,7 @@
               "statsGroups": []
             }
           ],
-          "title": "🔴Assumed Role: Last 100 requests💥💃",
+          "title": "🔴CloudTrail💃: Last ${limit} Assumed Role",
           "transformations": [
             {
               "id": "organize",
@@ -2346,495 +2495,13 @@
           ],
           "transparent": true,
           "type": "table"
-        },
-        {
-          "datasource": {
-            "type": "cloudwatch",
-            "uid": "${DS_CLOUDWATCH-OREGON}"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "custom": {
-                "align": "auto",
-                "cellOptions": {
-                  "type": "auto"
-                },
-                "filterable": true,
-                "inspect": false
-              },
-              "mappings": [],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#800020"
-                  }
-                ]
-              }
-            },
-            "overrides": [
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Time"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 180
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Time"
-                },
-                "properties": [
-                  {
-                    "id": "unit",
-                    "value": "dateTimeAsIso"
-                  },
-                  {
-                    "id": "custom.width",
-                    "value": 170
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🌐Region"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 104
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Source"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 212
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Name"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 165
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🐾From"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 208
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#fffdd0",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👥Invoked By"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 209
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "➡️👤Recipient Account ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 223
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-background"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👀Details"
-                },
-                "properties": [
-                  {
-                    "id": "custom.inspect",
-                    "value": true
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#ffc0cb",
-                      "mode": "fixed"
-                    }
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Type"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 143
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "custom.cellOptions",
-                    "value": {
-                      "type": "color-text"
-                    }
-                  },
-                  {
-                    "id": "color",
-                    "value": {
-                      "fixedColor": "#fffdd0",
-                      "mode": "fixed"
-                    }
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "👤User Ident. Type"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 180
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "🚨Error Code"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 128
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 96
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Request ID"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 107
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Version"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 129
-                  },
-                  {
-                    "id": "links"
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Event Category"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 139
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Read Only"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 92
-                  },
-                  {
-                    "id": "links"
-                  }
-                ]
-              },
-              {
-                "matcher": {
-                  "id": "byName",
-                  "options": "Management Event"
-                },
-                "properties": [
-                  {
-                    "id": "custom.width",
-                    "value": 168
-                  }
-                ]
-              }
-            ]
-          },
-          "gridPos": {
-            "h": 7,
-            "w": 12,
-            "x": 12,
-            "y": 48
-          },
-          "id": 42,
-          "options": {
-            "cellHeight": "sm",
-            "footer": {
-              "countRows": false,
-              "fields": "",
-              "reducer": [
-                "sum"
-              ],
-              "show": false
-            },
-            "showHeader": true,
-            "sortBy": []
-          },
-          "pluginVersion": "11.0.0",
-          "targets": [
-            {
-              "datasource": {
-                "type": "cloudwatch",
-                "uid": "${DS_CLOUDWATCH-OREGON}"
-              },
-              "expression": "filter userIdentity.type not like /AssumedRole/\n| filter eventName not like /AssumeRole/\n| filter userIdentity.invokedBy like /cloudtrail.amazonaws.com/\n| fields @timestamp, @logStream, @message, eventVersion, userIdentity.type, coalesce(userIdentity.invokedBy, userIdentity.principalId, userIdentity.accountId) as InvokedBy, eventTime, eventSource, eventName, eventType, awsRegion, sourceIPAddress, userAgent, errorCode, errorMessage, eventID, requestParameters, additionalEventData, requestID, readOnly, eventType, apiVersion, managementEvent, recipientAccountId, recipientAccountId.serviceEventDetails.serviceAccountId, eventCategory, tlsDetails.tlsVersion, tlsDetails.cipherSuite, tlsDetails.clientProvidedHostHeader\n| sort @timestamp desc\n| limit 25",
-              "id": "A",
-              "logGroupNames": [],
-              "logGroups": [
-                {
-                  "arn": "$cloud_trail_log_groups",
-                  "name": "$cloud_trail_log_groups"
-                }
-              ],
-              "queryMode": "Logs",
-              "refId": "A",
-              "region": "default",
-              "statsGroups": []
-            }
-          ],
-          "title": "invokedBy 🔴CloudTrail: Last 25 requests💥🍁",
-          "transformations": [
-            {
-              "id": "organize",
-              "options": {
-                "excludeByName": {
-                  "Time": true,
-                  "eventCategory": true,
-                  "managementEvent": true,
-                  "readOnly": true,
-                  "tlsDetails.cipherSuite": true,
-                  "tlsDetails.clientProvidedHostHeader": true,
-                  "tlsDetails.tlsVersion": true,
-                  "userAgent": true
-                },
-                "includeByName": {},
-                "indexByName": {
-                  "@message": 16,
-                  "InvokedBy": 7,
-                  "Time": 0,
-                  "__log__grafana_internal__": 12,
-                  "__logstream__grafana_internal__": 13,
-                  "awsRegion": 2,
-                  "errorCode": 10,
-                  "eventCategory": 17,
-                  "eventID": 11,
-                  "eventName": 4,
-                  "eventSource": 3,
-                  "eventTime": 1,
-                  "eventType": 5,
-                  "eventVersion": 15,
-                  "managementEvent": 18,
-                  "readOnly": 19,
-                  "recipientAccountId": 9,
-                  "requestID": 14,
-                  "sourceIPAddress": 8,
-                  "tlsDetails.cipherSuite": 22,
-                  "tlsDetails.clientProvidedHostHeader": 23,
-                  "tlsDetails.tlsVersion": 21,
-                  "userAgent": 20,
-                  "userIdentity.type": 6
-                },
-                "renameByName": {
-                  "@message": "👀Details",
-                  "InvokedBy": "👥Invoked By",
-                  "Time": "Time",
-                  "__log__grafana_internal__": "",
-                  "awsRegion": "🌐Region",
-                  "errorCode": "🚨Error Code",
-                  "eventCategory": "Event Category",
-                  "eventID": "Event ID",
-                  "eventName": "Event Name",
-                  "eventSource": "Event Source",
-                  "eventTime": "Event Time",
-                  "eventType": "Event Type",
-                  "eventVersion": "Event Version",
-                  "managementEvent": "Management Event",
-                  "readOnly": "Read Only",
-                  "recipientAccountId": "➡️👤Recipient Account ID",
-                  "requestID": "Request ID",
-                  "sourceIPAddress": "🐾From",
-                  "tlsDetails.tlsVersion": "",
-                  "userAgent": "User Agent",
-                  "userIdentity.accountId": "👤User Ident. Account ID",
-                  "userIdentity.invokedBy": "",
-                  "userIdentity.type": "👤User Ident. Type"
-                }
-              }
-            },
-            {
-              "id": "sortBy",
-              "options": {
-                "fields": {},
-                "sort": [
-                  {
-                    "desc": true,
-                    "field": "Event Time"
-                  }
-                ]
-              }
-            }
-          ],
-          "transparent": true,
-          "type": "table"
         }
       ],
       "title": "📑Logs: 🔴CloudTrail",
       "type": "row"
     }
   ],
+  "refresh": "",
   "schemaVersion": 39,
   "tags": [
     "AWS",
@@ -3013,9 +2680,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": ".*",
-          "value": ".*"
+          "selected": true,
+          "text": "> 4c91ec6f-5ecc-4e49-a032-cfe613f44488",
+          "value": "4c91ec6f-5ecc-4e49-a032-cfe613f44488"
         },
         "description": "This is used for API-Gateway and Lambda",
         "hide": 0,
@@ -3025,13 +2692,13 @@
         "name": "api_gtwy_request_id",
         "options": [
           {
-            "selected": true,
+            "selected": false,
             "text": ".*",
             "value": ".*"
           }
         ],
         "query": ".*",
-        "queryValue": "",
+        "queryValue": "4c91ec6f-5ecc-4e49-a032-cfe613f44488",
         "skipUrlSync": false,
         "type": "custom"
       },
@@ -3093,9 +2760,9 @@
       },
       {
         "current": {
-          "selected": false,
-          "text": "200",
-          "value": "200"
+          "selected": true,
+          "text": "> 500",
+          "value": "500"
         },
         "description": "This is used for API-Gateway, Lambda and CloudTrail logs.",
         "hide": 0,
@@ -3130,7 +2797,7 @@
             "value": "150"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "200",
             "value": "200"
           },
@@ -3153,8 +2820,8 @@
     ]
   },
   "time": {
-    "from": "now-1h",
-    "to": "now"
+    "from": "2024-10-11T09:35:00.000Z",
+    "to": "2024-10-11T09:45:00.000Z"
   },
   "timeRangeUpdatedDuringEditOrView": false,
   "timepicker": {
@@ -3170,8 +2837,8 @@
     ]
   },
   "timezone": "",
-  "title": "AWS Serverless Security and Access Logs",
-  "uid": "ts1-coldasyou",
-  "version": 186,
+  "title": "AWS Serverless Observability Monitoring",
+  "uid": "ts2-whitehorsetv",
+  "version": 198,
   "weekStart": ""
 }

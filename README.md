@@ -44,7 +44,7 @@ This project provides A comprehensive observability solution for AWS environment
     - [🚀AWS Serverless Observability Monitoring👀](#aws-serverless-observability-monitoring-1)
       - [✰ ☁️Centralized CloudWatch Logs insights (🔴API-Gateway)](#-️centralized-cloudwatch-logs-insights-api-gateway)
       - [✰ ☁️Centralized CloudWatch Logs insights (🟠Lambda)](#-️centralized-cloudwatch-logs-insights-lambda)
-      - [✰ ☁️Centralized 🔵X-Ray Traces, Service Map and Frame Graph](#-️centralized-x-ray-traces-service-map-and-frame-graph)
+      - [✰ ☁️Centralized 🔵X-Ray Distributed tracing and Service Map](#-️centralized-x-ray-distributed-tracing-and-service-map)
       - [✰ ☁️Centralized 🔴CloudTrail API Traces](#-️centralized-cloudtrail-api-traces)
   - [🪩 Getting Started](#-getting-started)
   - [🪩 License](#-license)
@@ -105,6 +105,7 @@ Our goal is to empower companies and developers with high-performance, cost-effi
 
 |✅ Features|[☀️**Grafana's download site**](https://grafana.com/grafana/dashboards/21933-aws-serverless-overview/) |
 |---|---|
+|🔵**AWS X-Ray Trace Statistics:** |- **High Level Overall**: This helps you to get your system health across all accounts in your Organization.|
 |🔴**API Gateway Performance Monitoring:**  |- **Request Total** (RPM): Monitor total API requests with counts for each endpoint to see traffic trends and request patterns.<br>- **Response Time** (Max): Analyze maximum response times to identify potential bottlenecks in API performance.<br>- **Integration Response Time**: Track time taken to integrate with back-end services, helping diagnose slow integrations.<br>- **4xx and 5xx Error Analysis**: View paths with the highest errors, along with HTTP methods and IP addresses, for effective troubleshooting.<br>- **Most Popular API Paths**: Highlight frequently accessed API paths to assist in optimizing performance and resource allocation.|
 |🟠**AWS Lambda Performance Insights:**  |- **Request Total (RPM)**: Track Lambda invocations per function(synchronous and asynchronous) to gauge usage and monitor spikes.<br>- <mark>**Duration Metrics with Percentiles**</mark>: View average and maximum execution durations, with percentiles (average, p75, p90, p95, p99) for deeper insights into response variability. This help us identify <mark>extreme outliers, which's the worst customer experiences.</mark><br>- <mark>**Concurrency Metrics**</mark>: Observe concurrent executions to ensure Lambda scaling aligns with demand.<br>- **Error and Throttle Tracking**: Track errors and throttled invocations, ensuring smoother operations and faster troubleshooting.|
 |🔵**DynamoDB Performance Monitoring:**   |- **Request Latency**: Track successful request latencies for both read and write operations to optimize DynamoDB performance.<br>- **Capacity Utilization**: Monitor consumed capacity units for reads and writes to ensure you stay within provisioned limits and avoid throttling.<br>- **Error Tracking**: Watch for system errors like `ConditionalCheckFailedRequests` to ensure data consistency and transactional integrity.<br>- **Throttle Events**: Stay informed about any throttled requests and adjust provisioned capacity to maintain performance.|
@@ -125,7 +126,7 @@ Our goal is to empower companies and developers with high-performance, cost-effi
 |---|---|
 |🔴**API Gateway Request and Error Monitoring:**  |- **Track Recent API Gateway Requests**: View the latest _300_ API Gateway requests with detailed metadata, including IP addresses, request methods, and response statuses.<br>- **Error Analytics**: Spot errors (4xx and 5xx) instantly, with the ability to drill down into error details for troubleshooting.|
 |🟠**AWS Lambda Deep Insights:**   |- **Track Recent Lambda Executions**: Examine detailed logs for the most recent Lambda invocations, including execution status, request ID, and X-Ray trace information.<br>- **Enhanced Lambda Debugging**: Easily filter and find Lambda execution logs tied to specific API requests using `correlation IDs` from API Gateway and `trace IDs`.|
-|🔵**AWS X-Ray Trace Monitoring:** |- **Real-time Trace Visualization**: Get a complete visual breakdown of API Gateway requests and Lambda invocations using X-Ray traces. Trace the path of a request as it moves through API Gateway, Lambda, and DynamoDB using `Service Map`.<br>- **Detailed Latency Breakdown**: Understand the latency of each service involved in a transaction, helping you identify performance bottlenecks at a glance with the `Flame Graph`.|
+|🔵**AWS X-Ray Trace Monitoring:** |- **Real-time Trace Visualization**: Get a complete visual breakdown of API Gateway requests and Lambda invocations using X-Ray traces. Trace the path of a request as it moves through API Gateway, Lambda, and DynamoDB using `Service Map`.<br>- **Detailed Latency Breakdown**: Understand the latency of each service involved in a transaction, helping you identify performance bottlenecks at a glance with the `Distributed tracing`.|
 |**Centralized 🔴CloudTrail Logs:** |- **Cross-Service Correlation**: Track recent AWS API requests. Easily identify and troubleshoot issues across multiple services, including who called the API and from where.|
 
 ---
@@ -294,11 +295,11 @@ Here are some examples of the dashboards you can create with this project. ([**A
 
 <br>
 
-#### ✰ ☁️Centralized 🔵X-Ray Traces, Service Map and Frame Graph
+#### ✰ ☁️Centralized 🔵X-Ray Distributed tracing and Service Map
 
 ![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY.jpg)
 
-|Service Map|Frame Graph|
+|Service Map|Distributed tracing|
 |---|---|
 |![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY-SM.jpg)|![Centralized X-Ray](./assets/SS-Obs-CWLs-XRAY-Graph.jpg)|
 
